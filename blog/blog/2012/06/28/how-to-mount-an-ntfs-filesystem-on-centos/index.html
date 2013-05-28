@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How to Mount an NTFS Filesystem on CentOS - Codingarena</title>
+  <meta name="author" content="Manu S Ajith">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+    
+  
+  <meta name="description" content="Installing required packages Install the following packages yum install fuse fuse-ntfs-3g If the rpmforge repo is disabled by default, yum -- &hellip;">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://manusajith.github.io/blog/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/blog/atom.xml" rel="alternate" title="Codingarena" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Codingarena" />
+  <meta name="og:title" content="How to Mount an NTFS Filesystem on CentOS" />
+  <meta name="og:description" content="Installing required packages Install the following packages yum install fuse fuse-ntfs-3g If the rpmforge repo is disabled by default, yum -- &hellip;" />
+  <meta name="og:url" content="http://manusajith.github.io/blog/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/"/>
+  <meta name="url" content="http://manusajith.github.io/blog/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/">
+  
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30559513-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/blog/">Codingarena</a>
+    <ul class="nav">
+      <li><a href="/blog/">Home</a></li>
+      <li><a href="/blog/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:manusajith.github.io/blog" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <article class="span8 offset1" role="article">
+          <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">How to Mount an NTFS Filesystem on CentOS</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-28T00:00:00+05:30" pubdate data-updated="true">Jun 28<span>th</span>, 2012</time> - 
+        
+
+
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Installing required packages</h2>
+
+<h3>Install the following packages</h3>
+
+<pre><code>yum install fuse fuse-ntfs-3g
+</code></pre>
+
+<p>If the rpmforge repo is disabled by default,</p>
+
+<pre><code>yum --enablerepo=rpmforge install fuse fuse-ntfs-3g
+yum install ntfs-3g
+yum install ntfsprogs ntfsprogs-gnomevfs
+</code></pre>
+
+<h3>Mounting an NTFS filesystem</h3>
+
+<p>Suppose your ntfs filesystem is /dev/sda1 and you are going to mount it on /mymnt/win, do the following.</p>
+
+<p>First, create a mount point.</p>
+
+<pre><code>mkdir /mymnt/win
+</code></pre>
+
+<p>Next, edit /etc/fstab as follows. To mount read-only:</p>
+
+<pre><code>/dev/sda1       /mymnt/win   ntfs-3g  ro,umask=0222,defaults 0 0
+</code></pre>
+
+<p>To mount read-write:</p>
+
+<pre><code>/dev/sda1       /mymnt/win   ntfs-3g  rw,umask=0000,defaults 0 0
+</code></pre>
+
+<p>You can now mount it by running:</p>
+
+<pre><code>mount /mymnt/win
+</code></pre>
+
+<p><a href="http://facebook.com/manusajith">Manu</a></p>
+
+<p><a href="http://codingarena.in" title="Codingarena">Codingarena</a></p>
+
+<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
+  
+
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-28T00:00:00+05:30" pubdate data-updated="true">Jun 28<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+    
+    
+      <a class="pull-left" href="/blog/2012/05/01/installing-ms-core-fonts-on-linux/" title="Previous Post: Installing  MS Core Fonts on Linux">&laquo; Installing  MS Core Fonts on Linux</a>
+    
+    
+      <a class="pull-right" href="/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/" title="Next Post: Install Adobe Flash Player 11.2 on Fedora 17/16, CentOS/RHEL 6.2/5.8">Install Adobe Flash Player 11.2 on Fedora 17/16, CentOS/RHEL 6.2/5.8 &raquo;</a>
+    
+  </footer>
+
+</div>
+
+          
+        </article>
+        <article class="span3 article-format" role="article">
+          <div class="coderwall-endorse"><a href="https://coderwall.com/manusajith"><img alt="Endorse Manu S Ajith on Coderwall" src="http://api.coderwall.com/manusajith/endorsecount.png"></a></div>
+          <embed type='application/x-shockwave-flash' src='/javascripts/tagcloud.swf'width='100%' height='250' bgcolor='#ffffff' id='tagcloudflash' name='tagcloudflash' quality='high' allowscriptaccess='always'flashvars="tcolor=0x333333&amp;tcolor2=0x333333&amp;hicolor=0x000000&amp;tspeed=100&amp;distr=true&amp;mode=tags&amp;tagcloud=%3Ctags%3E%3C%2Ftags%3E">
+        </article>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/">PDF generation in Rails</a>
+        </li>
+      
+        <li>
+          <a href="/blog/blog/2012/11/22/google-code-jam/">Google Code Jam</a>
+        </li>
+      
+        <li>
+          <a href="/blog/blog/2012/10/30/154-server-monotoring-script/">Simple Server monitoring Shell Script</a>
+        </li>
+      
+        <li>
+          <a href="/blog/blog/2012/09/12/reset-root-password-in-xampp/">Reset root password in XAMPP</a>
+        </li>
+      
+        <li>
+          <a href="/blog/blog/2012/09/01/ubuntu-bonding-and-link-aggregation/">Ubuntu Bonding and link aggregation</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+<h2>twitter</h2>
+<a href="https://twitter.com/manusajith" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @manusajith</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class="tweet" data-twitter-user="manusajith">
+</div>
+
+
+  </div>
+  <div class="span2">
+    <h2>found on</h2>
+
+<a href="https://github.com/manusajith/" rel="tooltip" title="Github"><img class="social_icon" title="Github" alt="github icon" src="/blog/images/glyphicons_381_github.png"></a>
+
+
+
+
+
+<a href="http://www.linkedin.com/in/manusajith" rel="tooltip" title="Linkedin"><img class="social_icon" title="Linkedin" alt="Linkedin icon" src="/blog/images/glyphicons_377_linked_in.png"></a>
+
+
+
+<a href="http://twitter.com/manusajith" rel="tooltip" title="Twitter"><img class="social_icon" title="Twitter" alt="Twitter icon" src="/blog/images/glyphicons_391_twitter_t.png"></a>
+
+
+
+<a href="https://plus.google.com/110007023591027468321?rel=author" rel="tooltip" title="Google Plus"><img class="social_icon" title="Google Plus" alt="Google Plus icon" src="/blog/images/glyphicons_386_google_plus.png"></a>
+
+
+
+
+
+<h2>contact at</h2>
+<a href="mailto:neo@codingarena.in">neo@codingarena.in</a>
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/blog/">Codingarena</a>
+  - Copyright &copy; 2013 - Manu S Ajith
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/blog/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/blog/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/blog/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/blog/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/blog/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/blog/javascripts/custom.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'codingarenablog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>
