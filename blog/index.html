@@ -129,6 +129,109 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/">Use Specific Version of Rails Before Creating a New App</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-27T01:56:00+05:30" pubdate data-updated="true">Jun 27<span>th</span>, 2013</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/rails/'>Rails</a>
+  
+</span>
+
+
+        
+         | <a href="/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You want to develop with the latest version of Rails but you have an existing application that
+uses an older version that you are not ready to bring up to date. What do you do?</p>
+
+<p>By default gem will keep older versions of installed gems until you tell it not to. To see what you have installed:</p>
+
+<pre><code>$ gem list --local
+
+[...]
+
+rails (4.0.0.beta1, 3.2.13)
+</code></pre>
+
+<p>To use a specific version in your application add a line like this to the bottom of your config/environment.rb file</p>
+
+<pre><code>RAILS_GEM_VERSION = '3.2.13'
+</code></pre>
+
+<p>That should just work.</p>
+
+<p>You can get rid of old versions of gems with this command:</p>
+
+<pre><code>$ gem cleanup
+</code></pre>
+
+<p>If you remove an old version by mistake you can always reinstall it with this gem command:</p>
+
+<pre><code>$ sudo gem install rails --version 3.2.12
+</code></pre>
+
+<p>When you are ready to move your application to the current version of rails then remove the line from environment.rb and bring your application files up to date with:</p>
+
+<pre><code>$ rake rails:update
+</code></pre>
+
+<p>Now, let&rsquo;s say you have installed the current version of Rails (say, 4.0.0.beta1) but you need to build an application that uses an older version. According to &lsquo;rails &mdash;help&rsquo; there is no way to specify a version to use. It turns out that there is a hidden option available that does this:</p>
+
+<pre><code>$ rails _3.2.13_ myapp
+</code></pre>
+
+<p>&mdash;</p>
+
+<p>Manu S Ajith</p>
+
+<p><a href="http://twitter.com/manusajith/" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith/" title="Twitter">Git</a> |</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/">PDF Generation in Rails</a></h1>
     
     
@@ -1200,94 +1303,6 @@ $ cheat strftime
 
       </article>
     
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/">Install Adobe Flash Player 11.2 on Fedora 17/16, CentOS/RHEL 6.2/5.8</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-29T00:00:00+05:30" pubdate data-updated="true">Jun 29<span>th</span>, 2012</time> - 
-        
-
-
-        
-         | <a href="/blog/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Install Adobe YUM Repository RPM package</h2>
-
-<p>Adobe Repository 32-bit x86</p>
-
-<pre><code>rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-i386-1.0-1.noarch.rpm
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
-</code></pre>
-
-<p>Adobe Repository 64-bit x86_64</p>
-
-<pre><code>rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
-</code></pre>
-
-<h2>Update Repositories</h2>
-
-<pre><code>yum check-update
-</code></pre>
-
-<h3>Install Adobe Flash Player 11.2 on Fedora 17/16/15/14/13/12, CentOS 6.2/6.1/6 and Red Hat (RHEL) 6.2/6.1/6</h3>
-
-<p>Fedora 17/16/15/14/13/12, CentOS 6 and Red Hat (RHEL) 6 32-bit and 64-bit version
-yum install flash-plugin nspluginwrapper alsa-plugins-pulseaudio libcurl</p>
-
-<p>Install Adobe Flash Player 11.2 on CentOS 5.8 and Red Hat (RHEL) 5.8
-CentOS and Red Hat 32-bit and 64-bit version</p>
-
-<pre><code>yum groupinstall "Sound and Video"
-yum install flash-plugin nspluginwrapper curl
-</code></pre>
-
-<p><a href="http://facebook.com/manusajith">Manu</a></p>
-
-<p><a href="http://www.codingarena.in">www.codingarena.in</a></p>
-
-<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -1311,6 +1326,10 @@ yum install flash-plugin nspluginwrapper curl
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/">Use Specific version of rails before creating  a new app</a>
+        </li>
+      
+        <li>
           <a href="/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/">PDF generation in Rails</a>
         </li>
       
@@ -1324,10 +1343,6 @@ yum install flash-plugin nspluginwrapper curl
       
         <li>
           <a href="/blog/blog/2012/09/12/reset-root-password-in-xampp/">Reset root password in XAMPP</a>
-        </li>
-      
-        <li>
-          <a href="/blog/blog/2012/09/01/ubuntu-bonding-and-link-aggregation/">Ubuntu Bonding and link aggregation</a>
         </li>
       
     </ul>
