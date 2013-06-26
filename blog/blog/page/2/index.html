@@ -129,6 +129,94 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/">Install Adobe Flash Player 11.2 on Fedora 17/16, CentOS/RHEL 6.2/5.8</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-29T00:00:00+05:30" pubdate data-updated="true">Jun 29<span>th</span>, 2012</time> - 
+        
+
+
+        
+         | <a href="/blog/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Install Adobe YUM Repository RPM package</h2>
+
+<p>Adobe Repository 32-bit x86</p>
+
+<pre><code>rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-i386-1.0-1.noarch.rpm
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+</code></pre>
+
+<p>Adobe Repository 64-bit x86_64</p>
+
+<pre><code>rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+</code></pre>
+
+<h2>Update Repositories</h2>
+
+<pre><code>yum check-update
+</code></pre>
+
+<h3>Install Adobe Flash Player 11.2 on Fedora 17/16/15/14/13/12, CentOS 6.2/6.1/6 and Red Hat (RHEL) 6.2/6.1/6</h3>
+
+<p>Fedora 17/16/15/14/13/12, CentOS 6 and Red Hat (RHEL) 6 32-bit and 64-bit version
+yum install flash-plugin nspluginwrapper alsa-plugins-pulseaudio libcurl</p>
+
+<p>Install Adobe Flash Player 11.2 on CentOS 5.8 and Red Hat (RHEL) 5.8
+CentOS and Red Hat 32-bit and 64-bit version</p>
+
+<pre><code>yum groupinstall "Sound and Video"
+yum install flash-plugin nspluginwrapper curl
+</code></pre>
+
+<p><a href="http://facebook.com/manusajith">Manu</a></p>
+
+<p><a href="http://www.codingarena.in">www.codingarena.in</a></p>
+
+<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/">How to Mount an NTFS Filesystem on CentOS</a></h1>
     
     
@@ -963,89 +1051,6 @@ If there are no subdomains, then the zone and domain are essentially the same. I
 
       </article>
     
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/blog/2012/02/23/security-in-xampp/">Security in XAMPP</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-23T00:00:00+05:30" pubdate data-updated="true">Feb 23<span>rd</span>, 2012</time> - 
-        
-
-
-        
-         | <a href="/blog/blog/2012/02/23/security-in-xampp/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>XAMPP is not meant for production use but only for developers in a development environment. XAMPP is configured is to be as open as possible and to allow the web developer anything he/she wants. For development environments this is great but in a production environment it could be fatal.</p>
-
-<p>Here a list of missing security in XAMPP:</p>
-
-<ul>
-    <li>The MySQL administrator (root) has no password.</li>
-    <li>The MySQL daemon is accessible via network.</li>
-    <li>phpMyAdmin is accessible via network.</li>
-    <li>The XAMPP demopage is accessible via network.</li>
-    <li>The default users of Mercury and FileZilla are known.</li>
-</ul>
-
-
-<p>All points can be a huge security risk. Especially if XAMPP is accessible via network and people outside your LAN. It can also help to use a firewall or a (NAT-) router. In case of a router or firewall, your pc is normally not accessible via network. It is up to you to fix these problems. As a small help there is the &ldquo;XAMPP Security console&rdquo;.</p>
-
-<p>Please secure XAMPP before publishing anything online. A firewall or an external router are only sufficient for low levels of security. For slightly more security, you can run the &ldquo;XAMPP Security console&rdquo; and assign passwords.</p>
-
-<p>If you want have your XAMPP accessible from the internet, you should go to the following URI which can fix some problems:
-<a href="http://localhost/security/"><a href="http://localhost/security/">http://localhost/security/</a></a></p>
-
-<p>With the security console you can set a password for the MySQL user &ldquo;root&rdquo; and phpMyAdmin. You can also enable a authentication for the XAMPP demopages.</p>
-
-<p>This web based tool does not fix any additional security issues! Especially the FileZilla FTP server and the Mercury mail server you must secure yourself. If you don&rsquo;t need these servers, don&rsquo;t start them. A server which is not started, is very secure!</p>
-
-<p>&mdash;</p>
-
-<p><a title="Neo" href="http://facebook.com/manusajith">Manu</a></p>
-
-<p><a title="Codingarena" href="http://codingarena.in" target="_blank"><a href="http://codingarena.in">http://codingarena.in</a></a></p>
-
-<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -1073,6 +1078,10 @@ If there are no subdomains, then the zone and domain are essentially the same. I
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/">Use Specific version of rails before creating  a new app</a>
+        </li>
+      
+        <li>
           <a href="/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/">PDF generation in Rails</a>
         </li>
       
@@ -1086,10 +1095,6 @@ If there are no subdomains, then the zone and domain are essentially the same. I
       
         <li>
           <a href="/blog/blog/2012/09/12/reset-root-password-in-xampp/">Reset root password in XAMPP</a>
-        </li>
-      
-        <li>
-          <a href="/blog/blog/2012/09/01/ubuntu-bonding-and-link-aggregation/">Ubuntu Bonding and link aggregation</a>
         </li>
       
     </ul>

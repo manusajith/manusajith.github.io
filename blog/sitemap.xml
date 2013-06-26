@@ -112,14 +112,20 @@
         <loc>
             http://manusajith.github.io/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-06-27T01:56:35+05:30</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://manusajith.github.io/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/
+        </loc>
+        <lastmod>2013-06-27T02:05:12+05:30</lastmod>
     </url>
     <url>
         <loc>http://manusajith.github.io/blog/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-06-27T02:05:12+05:30</lastmod>
     </url>
     <url>
         <loc>http://manusajith.github.io/blog/blog/archives/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-06-27T02:05:12+05:30</lastmod>
     </url>
 </urlset>

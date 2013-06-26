@@ -4,7 +4,7 @@
   <title><![CDATA[Codingarena]]></title>
   <link href="http://manusajith.github.io/blog/atom.xml" rel="self"/>
   <link href="http://manusajith.github.io/blog/"/>
-  <updated>2013-05-29T02:48:00+05:30</updated>
+  <updated>2013-06-27T02:09:20+05:30</updated>
   <id>http://manusajith.github.io/blog/</id>
   <author>
     <name><![CDATA[Manu S Ajith]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Use Specific version of rails before creating  a new app]]></title>
+    <link href="http://manusajith.github.io/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/"/>
+    <updated>2013-06-27T01:56:00+05:30</updated>
+    <id>http://manusajith.github.io/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app</id>
+    <content type="html"><![CDATA[<p>You want to develop with the latest version of Rails but you have an existing application that
+uses an older version that you are not ready to bring up to date. What do you do?</p>
+
+<p>By default gem will keep older versions of installed gems until you tell it not to. To see what you have installed:</p>
+
+<pre><code>$ gem list --local
+
+[...]
+
+rails (4.0.0.beta1, 3.2.13)
+</code></pre>
+
+<p>To use a specific version in your application add a line like this to the bottom of your config/environment.rb file</p>
+
+<pre><code>RAILS_GEM_VERSION = '3.2.13'
+</code></pre>
+
+<p>That should just work.</p>
+
+<p>You can get rid of old versions of gems with this command:</p>
+
+<pre><code>$ gem cleanup
+</code></pre>
+
+<p>If you remove an old version by mistake you can always reinstall it with this gem command:</p>
+
+<pre><code>$ sudo gem install rails --version 3.2.12
+</code></pre>
+
+<p>When you are ready to move your application to the current version of rails then remove the line from environment.rb and bring your application files up to date with:</p>
+
+<pre><code>$ rake rails:update
+</code></pre>
+
+<p>Now, let&rsquo;s say you have installed the current version of Rails (say, 4.0.0.beta1) but you need to build an application that uses an older version. According to &lsquo;rails &mdash;help&rsquo; there is no way to specify a version to use. It turns out that there is a hidden option available that does this:</p>
+
+<pre><code>$ rails _3.2.13_ myapp
+</code></pre>
+
+<p>&mdash;</p>
+
+<p>Manu S Ajith</p>
+
+<p><a href="http://twitter.com/manusajith/" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith/" title="Twitter">Git</a> |</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PDF generation in Rails]]></title>
@@ -1175,45 +1227,6 @@ If there are no subdomains, then the zone and domain are essentially the same. I
 <p>&mdash;</p>
 
 <p><a title="Neo" href="http://facebook.com/manusajith" target="_blank">Manu</a></p>
-
-<p><a title="Codingarena" href="http://codingarena.in" target="_blank"><a href="http://codingarena.in">http://codingarena.in</a></a></p>
-
-<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Security in XAMPP]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/02/23/security-in-xampp/"/>
-    <updated>2012-02-23T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/02/23/security-in-xampp</id>
-    <content type="html"><![CDATA[<p>XAMPP is not meant for production use but only for developers in a development environment. XAMPP is configured is to be as open as possible and to allow the web developer anything he/she wants. For development environments this is great but in a production environment it could be fatal.</p>
-
-<p>Here a list of missing security in XAMPP:</p>
-
-<ul>
-    <li>The MySQL administrator (root) has no password.</li>
-    <li>The MySQL daemon is accessible via network.</li>
-    <li>phpMyAdmin is accessible via network.</li>
-    <li>The XAMPP demopage is accessible via network.</li>
-    <li>The default users of Mercury and FileZilla are known.</li>
-</ul>
-
-
-<p>All points can be a huge security risk. Especially if XAMPP is accessible via network and people outside your LAN. It can also help to use a firewall or a (NAT-) router. In case of a router or firewall, your pc is normally not accessible via network. It is up to you to fix these problems. As a small help there is the &ldquo;XAMPP Security console&rdquo;.</p>
-
-<p>Please secure XAMPP before publishing anything online. A firewall or an external router are only sufficient for low levels of security. For slightly more security, you can run the &ldquo;XAMPP Security console&rdquo; and assign passwords.</p>
-
-<p>If you want have your XAMPP accessible from the internet, you should go to the following URI which can fix some problems:
-<a href="http://localhost/security/"><a href="http://localhost/security/">http://localhost/security/</a></a></p>
-
-<p>With the security console you can set a password for the MySQL user &ldquo;root&rdquo; and phpMyAdmin. You can also enable a authentication for the XAMPP demopages.</p>
-
-<p>This web based tool does not fix any additional security issues! Especially the FileZilla FTP server and the Mercury mail server you must secure yourself. If you don&rsquo;t need these servers, don&rsquo;t start them. A server which is not started, is very secure!</p>
-
-<p>&mdash;</p>
-
-<p><a title="Neo" href="http://facebook.com/manusajith">Manu</a></p>
 
 <p><a title="Codingarena" href="http://codingarena.in" target="_blank"><a href="http://codingarena.in">http://codingarena.in</a></a></p>
 
