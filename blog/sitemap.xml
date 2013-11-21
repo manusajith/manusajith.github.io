@@ -1,131 +1,127 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://manusajith.github.io/blog/blog/2011/01/28/hello-world/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <loc>http://manusajith.github.io/blog/2011/01/28/hello-world/</loc>
+        <lastmod>2013-11-22T03:27:12+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/02/16/restorerecover-grub2-after-reinstalling-windows-xpvista7/
+            http://manusajith.github.io/blog/2012/02/16/restorerecover-grub2-after-reinstalling-windows-xpvista7/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:36:37+05:30</lastmod>
     </url>
     <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/02/23/security-in-xampp/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <loc>http://manusajith.github.io/blog/2012/02/23/security-in-xampp/</loc>
+        <lastmod>2013-11-22T03:36:31+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/02/24/2-step-login-verification-for-gmail-accounts/
+            http://manusajith.github.io/blog/2012/02/24/2-step-login-verification-for-gmail-accounts/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:36:25+05:30</lastmod>
     </url>
     <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/02/25/cyber-law-in-india/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <loc>http://manusajith.github.io/blog/2012/02/25/cyber-law-in-india/</loc>
+        <lastmod>2013-11-22T03:36:21+05:30</lastmod>
     </url>
     <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/03/29/google-funny-search-codes/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <loc>http://manusajith.github.io/blog/2012/03/29/google-funny-search-codes/</loc>
+        <lastmod>2013-11-22T03:51:02+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/03/30/virtual-credit-card-using-entropay/</loc>
+        <lastmod>2013-11-22T03:36:15+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained/</loc>
+        <lastmod>2013-11-22T03:50:16+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/04/02/robot-txt/</loc>
+        <lastmod>2013-11-22T03:36:01+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/04/21/domainkeys-identified-mail/</loc>
+        <lastmod>2013-11-22T03:35:54+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/05/01/installing-ms-core-fonts-on-linux/</loc>
+        <lastmod>2013-11-22T03:27:12+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/03/30/virtual-credit-card-using-entropay/
+            http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:27:12+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/03/31/dns-zone-dns-records-explained/
+            http://manusajith.github.io/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/04/02/robot-txt/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/04/21/domainkeys-identified-mail/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:27:12+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/05/01/installing-ms-core-fonts-on-linux/
+            http://manusajith.github.io/blog/2012/07/09/programmers-cheat-sheets-via-terminal/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:49:44+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/
+            http://manusajith.github.io/blog/2012/08/13/my-hack-cupids-buzz-at-yahoo-open-hack-2012/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:35:13+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/08/19/nginx-php-important-security-issue/</loc>
+        <lastmod>2013-11-22T03:34:50+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/
+            http://manusajith.github.io/blog/2012/08/31/installing-ioncube-loader-on-whmcpanel/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:38:37+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/07/09/programmers-cheat-sheets-via-terminal/
+            http://manusajith.github.io/blog/2012/09/01/ubuntu-bonding-and-link-aggregation/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:39:56+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/09/12/reset-root-password-in-xampp/</loc>
+        <lastmod>2013-11-22T03:37:24+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/10/30/154-server-monotoring-script/</loc>
+        <lastmod>2013-11-22T03:34:16+05:30</lastmod>
+    </url>
+    <url>
+        <loc>http://manusajith.github.io/blog/2012/11/22/google-code-jam/</loc>
+        <lastmod>2013-11-22T03:34:06+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/08/13/my-hack-cupids-buzz-at-yahoo-open-hack-2012/
+            http://manusajith.github.io/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:33:38+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://manusajith.github.io/blog/blog/2012/08/19/nginx-php-important-security-issue/
+            http://manusajith.github.io/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/
         </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <lastmod>2013-11-22T03:33:19+05:30</lastmod>
     </url>
     <url>
-        <loc>
-            http://manusajith.github.io/blog/blog/2012/08/31/installing-ioncube-loader-on-whmcpanel/
-        </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <loc>http://manusajith.github.io/blog/2013/11/22/mathjax-rails/</loc>
+        <lastmod>2013-11-22T03:32:05+05:30</lastmod>
     </url>
     <url>
-        <loc>
-            http://manusajith.github.io/blog/blog/2012/09/01/ubuntu-bonding-and-link-aggregation/
-        </loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
+        <loc>http://manusajith.github.io/blog/archives/</loc>
+        <lastmod>2013-11-22T03:51:02+05:30</lastmod>
     </url>
     <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/09/12/reset-root-password-in-xampp/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/10/30/154-server-monotoring-script/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://manusajith.github.io/blog/blog/2012/11/22/google-code-jam/</loc>
-        <lastmod>2013-05-29T00:37:19+05:30</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://manusajith.github.io/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/
-        </loc>
-        <lastmod>2013-06-27T01:56:35+05:30</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://manusajith.github.io/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/
-        </loc>
-        <lastmod>2013-06-27T02:05:12+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://manusajith.github.io/blog/</loc>
-        <lastmod>2013-06-27T02:05:12+05:30</lastmod>
-    </url>
-    <url>
-        <loc>http://manusajith.github.io/blog/blog/archives/</loc>
-        <lastmod>2013-06-27T02:05:12+05:30</lastmod>
+        <loc>http://manusajith.github.io/</loc>
+        <lastmod>2013-11-22T03:51:02+05:30</lastmod>
     </url>
 </urlset>

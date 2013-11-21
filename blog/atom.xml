@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Codingarena]]></title>
-  <link href="http://manusajith.github.io/blog/atom.xml" rel="self"/>
-  <link href="http://manusajith.github.io/blog/"/>
-  <updated>2013-06-27T02:09:20+05:30</updated>
-  <id>http://manusajith.github.io/blog/</id>
+  <link href="http://manusajith.github.io/atom.xml" rel="self"/>
+  <link href="http://manusajith.github.io/"/>
+  <updated>2013-11-22T04:05:03+05:30</updated>
+  <id>http://manusajith.github.io/</id>
   <author>
     <name><![CDATA[Manu S Ajith]]></name>
     <email><![CDATA[neo@codingarena.in]]></email>
@@ -14,12 +14,158 @@
 
   
   <entry>
+    <title type="html"><![CDATA[mathjax-rails]]></title>
+    <link href="http://manusajith.github.io/blog/2013/11/22/mathjax-rails/"/>
+    <updated>2013-11-22T03:08:06+05:30</updated>
+    <id>http://manusajith.github.io/blog/2013/11/22/mathjax-rails</id>
+    <content type="html"><![CDATA[<p>Ever wanted to include Mathematics equations in your rails application and wondered how to implement it ?. The following gem will help to implement MathJax into your rails application without much fuzz.</p>
+
+<!--more-->
+
+
+<h1>MathJax-Rails</h1>
+
+<p>We are living in an age, where displaying math on web pages is never hard, thanks to the great work of <a href="https://github.com/mathjax/MathJax">MathJax</a>.</p>
+
+<p>To quote the description from its official website,</p>
+
+<blockquote><p><a href="https://github.com/mathjax/MathJax">MathJax</a> is an open source JavaScript display engine for mathematics that works in all modern browsers.</p>
+
+<p>No more setup for readers. No more browser plugins. No more font installations… It just works.</p></blockquote>
+
+<h2>Why bother another gem?</h2>
+
+<p>Integrating MathJax into a rails project however could be a pain. MathJax is HUGE. It makes your project folder swollen very much, because of the excessive amount of files contained in this package. Including mathjax inside your developing directory makes your TextMate less responsive, because when TextMate loses focus and then regains focus, it will scan the whole directory structure for change.</p>
+
+<p>Another problem is, where to put? Put into <code>public</code> does not seem the best practice, since beginning with rails 3.1 <code>public</code> is by default ignored in production environment. Plus it is big, when using git, it leaves you no choice but to throw mathjax inside .gitignore, which makes sharing across developers less painless.</p>
+
+<h2>So?</h2>
+
+<p>That&rsquo;s the time when mathjax-rails comes into play!</p>
+
+<ul>
+<li>It maintains MathJax at a system-wide directory.</li>
+<li>By simply including mathjax-rails in your Gemfile, all your rails app can benefit from MathJax immediately.</li>
+<li>You can control the version of MathJax by controlling the version of mathjax-rails, which is done simply via bundler.</li>
+</ul>
+
+
+<h2>Which version of MathJax does it use?</h2>
+
+<p>We maintain mathjax-rails to always use the latest version of stable MathJax realeases.</p>
+
+<p>To see the actual version, check the constant Mathjax::Rails::MATHJAXVERSION.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<pre><code>gem 'mathjax-rails'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install mathjax-rails
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>add the following to config/routes.rb (you can change the name of course)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">mathjax</span> <span class="s1">&#39;mathjax&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>add the script tag inside app/views/layouts/application.html.erb</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rhtml'><span class='line'><span class="cp">&lt;%=</span> <span class="n">mathjax_tag</span> <span class="cp">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>and it is done!</p>
+
+<p>To try it, write a simple formula, for example,</p>
+
+<p>  [\int_a<sup>b</sup> f(x) dx=F(b)-F(a)]</p>
+
+<h2>Configuration</h2>
+
+<p>By default the <code>TeX-AMS_HTML-full.js</code> is loaded as the configuration file.</p>
+
+<p>If you do not want any configuration file to be loaded:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rhtml'><span class='line'><span class="cp">&lt;%=</span> <span class="n">mathjax_tag</span> <span class="ss">:config</span><span class="o">=&gt;</span><span class="kp">false</span> <span class="cp">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to load another configuration file, say <code>Accessible-full.js</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rhtml'><span class='line'><span class="cp">&lt;%=</span> <span class="n">mathjax_tag</span> <span class="ss">:config</span><span class="o">=&gt;</span><span class="s1">&#39;Accessible-full.js&#39;</span> <span class="cp">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Additional configuration can be added directly before mathjax_tag, for example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='rhtml'><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/x-mathjax-config&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+</span><span class='line'>   <span class="nx">tex2jax</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>     <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;$&#39;</span><span class="p">,</span><span class="s1">&#39;$&#39;</span><span class="p">]</span> <span class="p">],</span>
+</span><span class='line'>     <span class="nx">processEscapes</span><span class="o">:</span> <span class="kc">true</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="nt">&lt;/script&gt;</span>
+</span><span class='line'><span class="cp">&lt;%=</span> <span class="n">mathjax_tag</span> <span class="cp">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For more options please consult the MathJax documentation.</p>
+
+<h2>What did it do to my rails project</h2>
+
+<p>Three simple things: it adds 1 controller <code>MathjaxRailsController</code>; 1 helper method <code>mathjax_tag</code>; 1 router method <code>mathjax</code>.</p>
+
+<p>It won&rsquo;t pollute your rails project more than the above three.</p>
+
+<h2>Note</h2>
+
+<ul>
+<li><p>If you have a fast CDN service at hand, you don&rsquo;t need this gem. Putting your MathJax at CDN is probably the best choice.</p></li>
+<li><p>A new version of mathjax-rails was released today with support for Rails 4.x apps.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Use Specific version of rails before creating  a new app]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/"/>
+    <link href="http://manusajith.github.io/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app/"/>
     <updated>2013-06-27T01:56:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app</id>
+    <id>http://manusajith.github.io/blog/2013/06/27/use-specific-version-of-rails-before-creating-a-new-app</id>
     <content type="html"><![CDATA[<p>You want to develop with the latest version of Rails but you have an existing application that
 uses an older version that you are not ready to bring up to date. What do you do?</p>
+
+<!--more-->
+
 
 <p>By default gem will keep older versions of installed gems until you tell it not to. To see what you have installed:</p>
 
@@ -67,10 +213,13 @@ rails (4.0.0.beta1, 3.2.13)
   
   <entry>
     <title type="html"><![CDATA[PDF generation in Rails]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/"/>
+    <link href="http://manusajith.github.io/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/"/>
     <updated>2013-04-08T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf</id>
+    <id>http://manusajith.github.io/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf</id>
     <content type="html"><![CDATA[<p>Recently my friend was working on a project that had a requirement to export the html page to PDF. He had some issues setting this up. So I thought I would write this article, so that it will be helpful for  anyone who faces the same issue. It’s easy getting your pdf in rails as long as you follow the right steps ;) (But unfortunately my good friend doesnt always do that for some reason of his own &ndash; No offense intended ;) )</p>
+
+<!--more-->
+
 
 <p>If you are using Rails, then you have this wonderful <a href="http://rubygems.org">rubygems</a> where you can find a no of gems for pdf generation. The suggested ones are <a href="http://rubygems.org/gems/prawn">prawn</a> and <a href="http://rubygems.org/gems/wicked_pdf">wicked_pdf</a>.</p>
 
@@ -232,10 +381,13 @@ end
   
   <entry>
     <title type="html"><![CDATA[Google Code Jam]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/11/22/google-code-jam/"/>
+    <link href="http://manusajith.github.io/blog/2012/11/22/google-code-jam/"/>
     <updated>2012-11-22T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/11/22/google-code-jam</id>
+    <id>http://manusajith.github.io/blog/2012/11/22/google-code-jam</id>
     <content type="html"><![CDATA[<p><a href="http://code.google.com/codejam/" title="Code Jam" target="_blank">Google Code Jam </a> is an international programming competition hosted and administered by <a href="http://google.com" title="Google" target="_blank">Google</a>. The competition began in 2003 as a means to identify top engineering talent for potential employment at Google. The competition consists of a set of algorithmic problems which must be solved in a fixed amount of time. Competitors may use any programming language and development environment to obtain their solutions.</p>
+
+<!--more-->
+
 
 <p>In 2013, Google Code Jam will mark its tenth year of bringing the world&rsquo;s coding community together to solve tough algorithmic puzzles.</p>
 
@@ -264,12 +416,15 @@ Friday, August 16, 2013 TBD TBD Onsite Finals</p>
   
   <entry>
     <title type="html"><![CDATA[Simple Server monitoring Shell Script]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/10/30/154-server-monotoring-script/"/>
+    <link href="http://manusajith.github.io/blog/2012/10/30/154-server-monotoring-script/"/>
     <updated>2012-10-30T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/10/30/154-server-monotoring-script</id>
+    <id>http://manusajith.github.io/blog/2012/10/30/154-server-monotoring-script</id>
     <content type="html"><![CDATA[<h2>A simple shell script to monitor whether your server is running or not.</h2>
 
 <p>This script should be made to run on some other server, because when your server goes down all the scripts will stop executing too, so there is no point in running the script on the same server.</p>
+
+<!--more-->
+
 
 <h3>Create a new file</h3>
 
@@ -321,10 +476,13 @@ fi
   
   <entry>
     <title type="html"><![CDATA[Reset root password in XAMPP]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/09/12/reset-root-password-in-xampp/"/>
+    <link href="http://manusajith.github.io/blog/2012/09/12/reset-root-password-in-xampp/"/>
     <updated>2012-09-12T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/09/12/reset-root-password-in-xampp</id>
+    <id>http://manusajith.github.io/blog/2012/09/12/reset-root-password-in-xampp</id>
     <content type="html"><![CDATA[<p>In case you forgot your root password for mysql and phpmyadmin</p>
+
+<!--more-->
+
 
 <p>Go to your xampp\mysql\bin\ folder</p>
 
@@ -354,10 +512,15 @@ fi
   
   <entry>
     <title type="html"><![CDATA[Ubuntu Bonding and link aggregation]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/09/01/ubuntu-bonding-and-link-aggregation/"/>
+    <link href="http://manusajith.github.io/blog/2012/09/01/ubuntu-bonding-and-link-aggregation/"/>
     <updated>2012-09-01T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/09/01/ubuntu-bonding-and-link-aggregation</id>
-    <content type="html"><![CDATA[<h2>Installation</h2>
+    <id>http://manusajith.github.io/blog/2012/09/01/ubuntu-bonding-and-link-aggregation</id>
+    <content type="html"><![CDATA[<p>Blog post on link aggregation in ubuntu</p>
+
+<!--more-->
+
+
+<h2>Installation</h2>
 
 <p>ifenslave is used to attach and detach slave network interfaces to a bonding device.</p>
 
@@ -499,10 +662,15 @@ balance-alb</p>
   
   <entry>
     <title type="html"><![CDATA[Installing ioncube loader on WHM/cPanel]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/08/31/installing-ioncube-loader-on-whmcpanel/"/>
+    <link href="http://manusajith.github.io/blog/2012/08/31/installing-ioncube-loader-on-whmcpanel/"/>
     <updated>2012-08-31T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/08/31/installing-ioncube-loader-on-whmcpanel</id>
-    <content type="html"><![CDATA[<h2>Download It</h2>
+    <id>http://manusajith.github.io/blog/2012/08/31/installing-ioncube-loader-on-whmcpanel</id>
+    <content type="html"><![CDATA[<p>Tutorial on Installing Ioncube Loader on WHM/cPanel</p>
+
+<!--more-->
+
+
+<h2>Download It</h2>
 
 <pre><code>wget http://downloads.ioncube.com/loader_download /ioncube_loaders_lin_x86.tar.gz
 tar zfx ioncube_loaders_lin_x86.tar.gz
@@ -549,10 +717,13 @@ with Suhosin v0.9.27, Copyright (c) 2007, by SektionEins GmbH
   
   <entry>
     <title type="html"><![CDATA[Nginx & PHP important security issue]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/08/19/nginx-php-important-security-issue/"/>
+    <link href="http://manusajith.github.io/blog/2012/08/19/nginx-php-important-security-issue/"/>
     <updated>2012-08-19T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/08/19/nginx-php-important-security-issue</id>
+    <id>http://manusajith.github.io/blog/2012/08/19/nginx-php-important-security-issue</id>
     <content type="html"><![CDATA[<p>A critical security issue has recently been pointed out on servers that run Nginx and PHP via FastCGI. The issue allows anyone to execute their own PHP code on the system, I don&rsquo;t think I have to remind you of the consequences this could have. I will attempt to provide a simple explanation of the issue and more importantly how to fix it.</p>
+
+<!--more-->
+
 
 <h2>What is the issue?</h2>
 
@@ -679,9 +850,9 @@ location ~ \.php$ {
   
   <entry>
     <title type="html"><![CDATA[My Hack (Cupid's Buzz) at Yahoo! Open Hack 2012]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/08/13/my-hack-cupids-buzz-at-yahoo-open-hack-2012/"/>
+    <link href="http://manusajith.github.io/blog/2012/08/13/my-hack-cupids-buzz-at-yahoo-open-hack-2012/"/>
     <updated>2012-08-13T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/08/13/my-hack-cupids-buzz-at-yahoo-open-hack-2012</id>
+    <id>http://manusajith.github.io/blog/2012/08/13/my-hack-cupids-buzz-at-yahoo-open-hack-2012</id>
     <content type="html"><![CDATA[<p>What would you feel when you accidentally come across that dream boy/girl of yours ? You would be definitely yearning to know more about that person (Ofcourse, I know you would&hellip; :D)</p>
 
 <p>Follow her&hellip; Friend her&hellip; and commit her :D</p>
@@ -689,6 +860,9 @@ location ~ \.php$ {
 <p>I mean..</p>
 
 <p>Follow her on Twitter&hellip; Make him/her your Facebook friend&hellip; Commit n collaborate with him/her on Github (or whatever&hellip;), All in just one single click&hellip; ;)</p>
+
+<!--more-->
+
 
 <p>Here I present,&lsquo;Cupid&rsquo;s Buzz&rsquo;,before all single boys and girls&hellip; Chase your &lsquo;dream&rsquo; :D&hellip;</p>
 
@@ -713,10 +887,13 @@ location ~ \.php$ {
   
   <entry>
     <title type="html"><![CDATA[Programmer's Cheat sheets via terminal]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/07/09/programmers-cheat-sheets-via-terminal/"/>
+    <link href="http://manusajith.github.io/blog/2012/07/09/programmers-cheat-sheets-via-terminal/"/>
     <updated>2012-07-09T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/07/09/programmers-cheat-sheets-via-terminal</id>
+    <id>http://manusajith.github.io/blog/2012/07/09/programmers-cheat-sheets-via-terminal</id>
     <content type="html"><![CDATA[<p>Cheat sheets are basically wiki pages accessible from the command line. You can browse, add, or edit cheat sheets. Try to keep them concise. For a style guide, check out the cheat cheat sheet.</p>
+
+<!-- more -->
+
 
 <h3>Get started:</h3>
 
@@ -748,9 +925,9 @@ $ cheat strftime
   
   <entry>
     <title type="html"><![CDATA[Install Adobe Flash Player 11.2 on Fedora 17/16, CentOS/RHEL 6.2/5.8]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/"/>
+    <link href="http://manusajith.github.io/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/"/>
     <updated>2012-06-29T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8</id>
+    <id>http://manusajith.github.io/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8</id>
     <content type="html"><![CDATA[<h2>Install Adobe YUM Repository RPM package</h2>
 
 <p>Adobe Repository 32-bit x86</p>
@@ -792,9 +969,9 @@ yum install flash-plugin nspluginwrapper curl
   
   <entry>
     <title type="html"><![CDATA[How to Mount an NTFS Filesystem on CentOS]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/"/>
+    <link href="http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/"/>
     <updated>2012-06-28T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos</id>
+    <id>http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos</id>
     <content type="html"><![CDATA[<h2>Installing required packages</h2>
 
 <h3>Install the following packages</h3>
@@ -843,9 +1020,9 @@ yum install ntfsprogs ntfsprogs-gnomevfs
   
   <entry>
     <title type="html"><![CDATA[Installing  MS Core Fonts on Linux]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/05/01/installing-ms-core-fonts-on-linux/"/>
+    <link href="http://manusajith.github.io/blog/2012/05/01/installing-ms-core-fonts-on-linux/"/>
     <updated>2012-05-01T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/05/01/installing-ms-core-fonts-on-linux</id>
+    <id>http://manusajith.github.io/blog/2012/05/01/installing-ms-core-fonts-on-linux</id>
     <content type="html"><![CDATA[<p>Download the MS Core Fonts Smart Package File</p>
 
 <pre><code>wget http://corefonts.sourceforge.net/msttcorefonts-2.0-1.spec
@@ -876,10 +1053,13 @@ yum install ntfsprogs ntfsprogs-gnomevfs
   
   <entry>
     <title type="html"><![CDATA[DomainKeys Identified Mail]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/04/21/domainkeys-identified-mail/"/>
+    <link href="http://manusajith.github.io/blog/2012/04/21/domainkeys-identified-mail/"/>
     <updated>2012-04-21T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/04/21/domainkeys-identified-mail</id>
+    <id>http://manusajith.github.io/blog/2012/04/21/domainkeys-identified-mail</id>
     <content type="html"><![CDATA[<p>DomainKeys (DK) and DomainKeys Identified Mail (DKIM) are cryptographic email verification systems that can be utilized to prevent spoofing (forging another person&rsquo;s email address in order to pose as a different message sender). Additionally, because most junk email (spam) messages contain spoofed addresses, DK/DKIM can help greatly in the reduction of spam even though the specifications weren&rsquo;t specifically designed to be an anti-spam tool. DK/DKIM can also be used to ensure the integrity of incoming messages, or ensure that the message hasn&rsquo;t been tampered with between the time it left the signing mail server and arrived at yours. In other words, with DK/DKIM cryptographic verification the receiving server can be certain that the arriving message is from the server that signed it, and that no one changed that message in any way.</p>
+
+<!--more-->
+
 
 <p>In order to ensure the validity and integrity of messages, DK/DKIM uses a public and private key-pairs system. An encrypted public key is published to the sending server&rsquo;s DNS records and then each outgoing message is signed by the server using the corresponding encrypted private key. For incoming messages, when the receiving server sees that a message has been signed, it will retrieve the public key from the sending server&rsquo;s DNS records and then compare that key with the message&rsquo;s cryptographic signature to determine its validity. If the incoming message cannot be verified then the receiving server knows it contains a spoofed address or has been tampered with or changed. A failed message can then be rejected, or it can be accepted but have its spam score adjusted.</p>
 
@@ -893,10 +1073,13 @@ yum install ntfsprogs ntfsprogs-gnomevfs
   
   <entry>
     <title type="html"><![CDATA[Robot.txt file on your server]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/04/02/robot-txt/"/>
+    <link href="http://manusajith.github.io/blog/2012/04/02/robot-txt/"/>
     <updated>2012-04-02T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/04/02/robot-txt</id>
+    <id>http://manusajith.github.io/blog/2012/04/02/robot-txt</id>
     <content type="html"><![CDATA[<p>All of us want our new websites to be indexed by search engines as soon as possible. But there are instances when we do not want our web pages to be indexed by search engines. For example, if you are developing a new section to your website and the web pages are still under construction you do not want the search engines to index any incomplete web pages.</p>
+
+<!--more-->
+
 
 <p>Some folks have a duplicate copy of their website or blog under a sub domain name (example sandbox.codingarena.in) as a testing site. If Google discovers this site it might penalize you for having duplicate content.</p>
 
@@ -946,14 +1129,17 @@ Once you have added the necessary command to the robots.txt file you can upload 
   
   <entry>
     <title type="html"><![CDATA[DNS Zone & DNS Records Explained]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/03/31/dns-zone-dns-records-explained/"/>
+    <link href="http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained/"/>
     <updated>2012-03-31T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/03/31/dns-zone-dns-records-explained</id>
+    <id>http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained</id>
     <content type="html"><![CDATA[<h2>WHAT IS THE DNS ZONE ?</h2>
 
 <p>In short, a zone is only a portion of a domain in that sense that it doesnt go outside the server that the root domain is on. If that summation is confusing then read on.</p>
 
 <p>Every domain name, which is a part of the DNS system, has several DNS settings, also known as DNS records. In order for these DNS records to be kept in order, the DNS zone was created. The total of all DNS zones, which are organized in a hierarchical tree-like order of cascading lower-level domains, form the DNS namespace.</p>
+
+<!--more-->
+
 
 <p>Domain name servers store information about part of the domain name space called a zone. The name server is authoritative for a particular zone. A single name server can be authoritative for many zones.</p>
 
@@ -986,10 +1172,13 @@ If there are no subdomains, then the zone and domain are essentially the same. I
   
   <entry>
     <title type="html"><![CDATA[Virtual Credit Card using Entropay]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/03/30/virtual-credit-card-using-entropay/"/>
+    <link href="http://manusajith.github.io/blog/2012/03/30/virtual-credit-card-using-entropay/"/>
     <updated>2012-03-30T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/03/30/virtual-credit-card-using-entropay</id>
+    <id>http://manusajith.github.io/blog/2012/03/30/virtual-credit-card-using-entropay</id>
     <content type="html"><![CDATA[<p>The need of Virtual Credit Card (VCC) has really gone high with the introduction of new PayPal rules in India and other countries. First of all VCC is not only for PayPal; it is useful for all kinds of online shopping. Once you have created a VCC it can be used anywhere just like an ordinary Credit Card. In this post I have specifically dealt with its usage regarding PayPal verification. There are few good sites that can be used for creating VCC and I will explain this tutorial with my favorite site  EntroPay.</p>
+
+<!--more-->
+
 
 <p>&nbsp;</p>
 
@@ -1045,10 +1234,13 @@ If there are no subdomains, then the zone and domain are essentially the same. I
   
   <entry>
     <title type="html"><![CDATA[Google Funny Search Codes]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/03/29/google-funny-search-codes/"/>
+    <link href="http://manusajith.github.io/blog/2012/03/29/google-funny-search-codes/"/>
     <updated>2012-03-29T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/03/29/google-funny-search-codes</id>
+    <id>http://manusajith.github.io/blog/2012/03/29/google-funny-search-codes</id>
     <content type="html"><![CDATA[<p>Google Funny Search Codes</p>
+
+<!-- more -->
+
 
 <p>&nbsp;</p>
 
@@ -1088,10 +1280,13 @@ If there are no subdomains, then the zone and domain are essentially the same. I
   
   <entry>
     <title type="html"><![CDATA[Cyber Law in India]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/02/25/cyber-law-in-india/"/>
+    <link href="http://manusajith.github.io/blog/2012/02/25/cyber-law-in-india/"/>
     <updated>2012-02-25T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/02/25/cyber-law-in-india</id>
+    <id>http://manusajith.github.io/blog/2012/02/25/cyber-law-in-india</id>
     <content type="html"><![CDATA[<p>Is a much newer phenomenon having emerged much after the onset of Internet. Internet grew in a completely unplanned and unregulated manner. Even the inventors of Internet could not have really anticipated the scope and far reaching consequences of cyberspace. The growth rate of cyberspace has been enormous. Internet is growing rapidly and with the population of Internet doubling roughly every 100 days, Cyberspace is becoming the new preferred environment of the world. With the spontaneous and almost phenomenal growth of cyberspace, new and ticklish issues relating to various legal aspects of cyberspace began cropping up.</p>
+
+<!--more-->
+
 
 <p>In response to the absolutely complex and newly emerging legal issues relating to cyberspace, CYBERLAW or the law of Internet came into being. The growth of Cyberspace has resulted in the development of a new and highly specialized branch of law called CYBERLAWS- LAWS OF THE INTERNET AND THE WORLD WIDE WEB.</p>
 
@@ -1186,43 +1381,6 @@ If there are no subdomains, then the zone and domain are essentially the same. I
 <p>Cyber savvy judges are the need of the day. Judiciary plays a vital role in shaping the enactment according to the order of the day. One such case, which needs appreciation, is the P.I.L. (Public Interest Litigation), which the Kerala High Court has accepted through an email.</p>
 
 <p>&lsquo;Perfect&rsquo; is a relative term. Nothing in this world is perfect. The persons who legislate the laws and by-laws also are not perfect. The laws therefore enacted by them cannot be perfect. The cyber law has emerged from the womb of globalization. It is at the threshold of development. In due course of exposure through varied and complicated issues it will grow to be a piece of its time legislation.</p>
-
-<p>&mdash;</p>
-
-<p><a title="Neo" href="http://facebook.com/manusajith" target="_blank">Manu</a></p>
-
-<p><a title="Codingarena" href="http://codingarena.in" target="_blank"><a href="http://codingarena.in">http://codingarena.in</a></a></p>
-
-<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2-step login verification for Gmail accounts]]></title>
-    <link href="http://manusajith.github.io/blog/blog/2012/02/24/2-step-login-verification-for-gmail-accounts/"/>
-    <updated>2012-02-24T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/blog/2012/02/24/2-step-login-verification-for-gmail-accounts</id>
-    <content type="html"><![CDATA[<p>Did you know that <a href="http://mashable.com/category/google/">Google</a> offers 2-step login verification for Gmail accounts? The feature has been around a while, and now Google has written a reminder for all users who need an extra layer of security for their Gmail account and other services connected to it.</p>
-
-<p><strong>How Does the 2-step Verification System Work?</strong></p>
-
-<p>The 2-step verification introduces a second layer of protection by using a one-time verification code that is sent to you <a title="How to Set Up and Use Facebook Via Mobile SMS" href="http://www.guidingtech.com/8635/use-facebook-via-mobile-sms/">via a text message</a> or a <a title="How to Get Started with Google Voice on Desktop and Mobile" href="http://www.guidingtech.com/6170/how-to-get-started-with-google-voice-on-desktop-and-mobile/">voice message</a> to your mobile device. Google will ask for this code if it senses that you have logged in from a new browser or a new device, other than your default ones. You have to key in this code after the password to authenticate your Google account. Sending an authentication code to your mobile makes it almost impossible for hackers to break into your account. Of course, you must have a mobile that supports SMS or voice messages from Google.</p>
-
-<p>Here is a more detailed walkthrough which explains how to set it up for Gmail and Google accounts:</p>
-
-<p>Sign-in to your Google account and go to the <a title="2-step verification page" href="https://accounts.google.com/b/0/SmsAuthConfig" target="_blank">2-step verification page</a>. You can use the direct link or reach it via your Google account settings.</p>
-
-<p>Click on the large <strong>blue Setup button </strong>and the guide walks you through the steps needed to setup the authentication layer. Basically it involves giving Google your mobile number and choosing the mode of code delivery (text or voice).</p>
-
-<p>You don&rsquo;t want to enter a code again and again for checking your email, so setup Google to remember your trusted devices for at least 30 days.</p>
-
-<p>In the final step, activate 2-step verification for your Google account. Now, if you sign-in from an unrecognized device or computer, you will be asked for the code.</p>
-
-<p>Google also prompts you to create some application specific passwords. Its for those apps you use to access your Google accounts from mobile devices and <a title="How to Set Up Gmail in Thunderbird" href="http://www.guidingtech.com/2219/set-up-gmail-in-thunderbird/">third-party email clients</a> like <a title="How to Sync Google Calendar with Microsoft Outlook" href="http://www.guidingtech.com/8710/sync-google-calendar-with-outlook/">MS Outlook</a>.</p>
-
-<p>You can also add a trusted secondary mobile number to receive the verification codes, in case you lose your main phone or keep it somewhere else. Google also gives you backup codes to access your email accounts on the go when you might not have cell coverage. These <em>permanent </em>codes do not expire and you can use them during such emergencies.</p>
-
-<p>Read more on Google&rsquo;s 2-step verification process <a href="http://support.google.com/accounts/bin/static.py?hl=en&amp;page=guide.cs&amp;guide=1056283" target="_blank">here</a>.</p>
 
 <p>&mdash;</p>
 
