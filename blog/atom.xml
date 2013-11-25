@@ -4,7 +4,7 @@
   <title><![CDATA[Codingarena]]></title>
   <link href="http://manusajith.github.io/atom.xml" rel="self"/>
   <link href="http://manusajith.github.io/"/>
-  <updated>2013-11-22T04:11:42+05:30</updated>
+  <updated>2013-11-25T13:59:17+05:30</updated>
   <id>http://manusajith.github.io/</id>
   <author>
     <name><![CDATA[Manu S Ajith]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fix for ruby 1.8.7 incompatibity - undefined method for Enumerable bug]]></title>
+    <link href="http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/"/>
+    <updated>2013-11-25T13:55:31+05:30</updated>
+    <id>http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug</id>
+    <content type="html"><![CDATA[<p>Recently I was working on a Rails 1.1.2 application which used Ruby version 1.8.6. I was trying to make the application work on Ruby 1.8.7, but I found that my 1.1.2 application developed in ruby 1.8.6 are not working in ruby 1.8.7.</p>
+
+<p>The attachment_fu plugin was throwing a weird error,</p>
+
+<pre><code>undefined method `[]' for #&lt;Enumerable::Enumerator:0xb70a72d0&gt;
+</code></pre>
+
+<p>and it was really hard to find what was causing the issue.</p>
+
+<!--more -->
+
+
+<p>From lot of search on google, I found that its issue with ruby 1.8.7 incomatibility. There is an incompatibility issue between Ruby 1.8.7’s String#chars method and the way ActiveSupport::Multibyte::Chars works.</p>
+
+<p>Then, I started searching fix / solution for this incompatibity.
+And, Finally I got solution.</p>
+
+<p>If you use any ActionView helper methods such as truncate and also happen to be running ruby 1.8.7 with Rails > 2.0.2 Insert this into the top of your environment.rb:</p>
+
+<pre><code>unless '1.9'.respond_to?(:force_encoding) 
+  String.class_eval do 
+   begin 
+    remove_method :chars 
+   rescue NameError 
+    # OK 
+   end 
+ end
+end
+</code></pre>
+
+<p>&mdash;</p>
+
+<p>Manu S Ajith</p>
+
+<p><a href="http://twitter.com/manusajith/" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith/" title="Twitter">Git</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[mathjax-rails]]></title>
@@ -1267,120 +1310,6 @@ If there are no subdomains, then the zone and domain are essentially the same. I
 <li><p>Type weenie google and click on Im Feeling Lucky</p></li>
 </ol>
 
-
-<p>&mdash;</p>
-
-<p><a title="Neo" href="http://facebook.com/manusajith" target="_blank">Manu</a></p>
-
-<p><a title="Codingarena" href="http://codingarena.in" target="_blank"><a href="http://codingarena.in">http://codingarena.in</a></a></p>
-
-<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Cyber Law in India]]></title>
-    <link href="http://manusajith.github.io/blog/2012/02/25/cyber-law-in-india/"/>
-    <updated>2012-02-25T00:00:00+05:30</updated>
-    <id>http://manusajith.github.io/blog/2012/02/25/cyber-law-in-india</id>
-    <content type="html"><![CDATA[<p>Is a much newer phenomenon having emerged much after the onset of Internet. Internet grew in a completely unplanned and unregulated manner. Even the inventors of Internet could not have really anticipated the scope and far reaching consequences of cyberspace. The growth rate of cyberspace has been enormous. Internet is growing rapidly and with the population of Internet doubling roughly every 100 days, Cyberspace is becoming the new preferred environment of the world. With the spontaneous and almost phenomenal growth of cyberspace, new and ticklish issues relating to various legal aspects of cyberspace began cropping up.</p>
-
-<!--more-->
-
-
-<p>In response to the absolutely complex and newly emerging legal issues relating to cyberspace, CYBERLAW or the law of Internet came into being. The growth of Cyberspace has resulted in the development of a new and highly specialized branch of law called CYBERLAWS- LAWS OF THE INTERNET AND THE WORLD WIDE WEB.</p>
-
-<p>Cyberlaw is a generic term which refers to all the legal and regulatory aspects of Internet and the World Wide Web. Anything concerned with or related to or emanating from any legal aspects or issues concerning any activity of netizens in and concerning Cyberspace comes within the ambit of Cyber-law.</p>
-
-<p>Cyber-law Provisions in India</p>
-
-<p>Offense Section under IT Act</p>
-
-<p>Tampering with Computer source documents</p>
-
-<p>Sec.65</p>
-
-<p>Hacking with Computer systems, Data alteration</p>
-
-<p>Sec.66</p>
-
-<p>Publishing obscene information</p>
-
-<p>Sec.67</p>
-
-<p>UN-authorized access to protected system</p>
-
-<p>Sec.70</p>
-
-<p>Breach of Confidentiality and Privacy</p>
-
-<p>Sec.72</p>
-
-<p>Publishing false digital signature certificates</p>
-
-<p>Sec.73</p>
-
-<p>NOTE: Sec.78 of I.T. Act empowers Deputy Superintendent Of Police to investigate cases falling under this Act.</p>
-
-<p>Computer Related Crimes Covered under Indian Penal Code and Special Laws</p>
-
-<p>Offence</p>
-
-<p>Section</p>
-
-<p>Sending threatening messages by email</p>
-
-<p>Sec 503 IPC</p>
-
-<p>Sending defamatory messages by email</p>
-
-<p>Sec 499 IPC</p>
-
-<p>Forgery of electronic records</p>
-
-<p>Sec 463 IPC</p>
-
-<p>Bogus websites, cyber frauds</p>
-
-<p>Sec 420 IPC</p>
-
-<p>Email spoofing</p>
-
-<p>Sec 463 IPC</p>
-
-<p>Web-Jacking</p>
-
-<p>Sec 383 IPC</p>
-
-<p>E-Mail Abuse</p>
-
-<p>Sec 500 IPC</p>
-
-<p>Online sale of Drugs</p>
-
-<p>NDPS Act</p>
-
-<p>Online sale of Arms</p>
-
-<p>Arms Act</p>
-
-<p>ELEMENTARY PROBLEMS ASSOCIATED WITH CYBER-CRIMES:</p>
-
-<p>One of the greatest lacunae in the field of Cyber Crime is the absence of comprehensive law any where in the World. The problem is further aggravated due to disproportional growth ratio of Internet and cyber laws. Though a beginning has been made by the enactment of I.T. Act and amendments made to Indian Penal Code, problems associated with cyber crimes continue to persist.</p>
-
-<p>Jurisdiction is the highly debatable issue as to the maintainability of any suits, which has been filed. Today with the growing arms of cyber space the territorial boundaries seem to vanish. Thus the concept of territorial jurisdiction as envisaged under S.16 of Cr.P.C. and S.2.of the I.P.C. will have to give way to alternative method of dispute resolution.</p>
-
-<p>Loss of evidence is a very common &amp; expected problem as all the data are routinely destroyed. Further, collection of data outside the territorial extent also paralyses the system of crime investigation.</p>
-
-<p>Cyber Army: There is also an imperative need to build a high technology crime &amp; investigation infrastructure, with highly technical staff at the other end.</p>
-
-<p>A law regulating the cyber-space, which India has done.</p>
-
-<p>Though S.75 provides for extra-territorial operations of this law, but they could be meaningful only when backed with provision recognizing orders and warrants for Information issued by competent authorities outside their jurisdiction and measure for cooperation for exchange of material and evidence of computer crimes between law enforcement agencies.</p>
-
-<p>Cyber savvy judges are the need of the day. Judiciary plays a vital role in shaping the enactment according to the order of the day. One such case, which needs appreciation, is the P.I.L. (Public Interest Litigation), which the Kerala High Court has accepted through an email.</p>
-
-<p>&lsquo;Perfect&rsquo; is a relative term. Nothing in this world is perfect. The persons who legislate the laws and by-laws also are not perfect. The laws therefore enacted by them cannot be perfect. The cyber law has emerged from the womb of globalization. It is at the threshold of development. In due course of exposure through varied and complicated issues it will grow to be a piece of its time legislation.</p>
 
 <p>&mdash;</p>
 

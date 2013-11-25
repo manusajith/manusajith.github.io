@@ -117,11 +117,17 @@
         <lastmod>2013-11-22T03:32:05+05:30</lastmod>
     </url>
     <url>
+        <loc>
+            http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/
+        </loc>
+        <lastmod>2013-11-25T13:59:02+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://manusajith.github.io/blog/archives/</loc>
-        <lastmod>2013-11-22T03:51:02+05:30</lastmod>
+        <lastmod>2013-11-25T13:59:02+05:30</lastmod>
     </url>
     <url>
         <loc>http://manusajith.github.io/</loc>
-        <lastmod>2013-11-22T03:51:02+05:30</lastmod>
+        <lastmod>2013-11-25T13:59:02+05:30</lastmod>
     </url>
 </urlset>

@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>DNS Zone & DNS Records Explained - Codingarena</title>
+  <title>Fix for ruby 1.8.7 incompatibity - undefined method for Enumerable bug - Codingarena</title>
   <meta name="author" content="Manu S Ajith">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="WHAT IS THE DNS ZONE ? In short, a zone is only a portion of a domain in that sense that it doesnt go outside the server that the root domain is on &hellip;">
+  <meta name="description" content="Recently I was working on a Rails 1.1.2 application which used Ruby version 1.8.6. I was trying to make the application work on Ruby 1.8.7, but I &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,20 +21,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained/">
+  <link rel="canonical" href="http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/">
   <link href="/blog/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Codingarena" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Codingarena" />
-  <meta name="og:title" content="DNS Zone & DNS Records Explained" />
-  <meta name="og:description" content="WHAT IS THE DNS ZONE ? In short, a zone is only a portion of a domain in that sense that it doesnt go outside the server that the root domain is on &hellip;" />
-  <meta name="og:url" content="http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained/"/>
-  <meta name="url" content="http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained/">
+  <meta name="og:title" content="Fix for ruby 1.8.7 incompatibity - undefined method for Enumerable bug" />
+  <meta name="og:description" content="Recently I was working on a Rails 1.1.2 application which used Ruby version 1.8.6. I was trying to make the application work on Ruby 1.8.7, but I &hellip;" />
+  <meta name="og:url" content="http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/"/>
+  <meta name="url" content="http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/">
   
-  <meta name="subject" content=""/>
-  <meta name="category" content=""/>
+  <meta name="subject" content="1.8.6RailsRubyRubyRuby-1.8.7plugins"/>
+  <meta name="category" content="1.8.6RailsRubyRubyRuby-1.8.7plugins"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -88,7 +88,7 @@
 
   <header>
     
-      <h1 class="entry-title">DNS Zone & DNS Records Explained</h1>
+      <h1 class="entry-title">Fix for Ruby 1.8.7 Incompatibity - Undefined Method for Enumerable Bug</h1>
     
     
       <p class="meta">
@@ -113,8 +113,15 @@
   
 
 
-<time datetime="2012-03-31T00:00:00+05:30" pubdate data-updated="true"></time> - 
+<time datetime="2013-11-25T13:55:31+05:30" pubdate data-updated="true">Nov 25<span>th</span>, 2013</time> - 
         
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/1-dot-8-6/'>1.8.6</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/ruby-1-dot-8-7/'>Ruby-1.8.7</a>, <a class='category' href='/blog/categories/plugins/'>plugins</a>
+  
+</span>
 
 
         
@@ -123,41 +130,41 @@
   </header>
 
 
-  <div class="entry-content"><h2>WHAT IS THE DNS ZONE ?</h2>
+  <div class="entry-content"><p>Recently I was working on a Rails 1.1.2 application which used Ruby version 1.8.6. I was trying to make the application work on Ruby 1.8.7, but I found that my 1.1.2 application developed in ruby 1.8.6 are not working in ruby 1.8.7.</p>
 
-<p>In short, a zone is only a portion of a domain in that sense that it doesnt go outside the server that the root domain is on. If that summation is confusing then read on.</p>
+<p>The attachment_fu plugin was throwing a weird error,</p>
 
-<p>Every domain name, which is a part of the DNS system, has several DNS settings, also known as DNS records. In order for these DNS records to be kept in order, the DNS zone was created. The total of all DNS zones, which are organized in a hierarchical tree-like order of cascading lower-level domains, form the DNS namespace.</p>
+<pre><code>undefined method `[]' for #&lt;Enumerable::Enumerator:0xb70a72d0&gt;
+</code></pre>
 
-<!--more-->
+<p>and it was really hard to find what was causing the issue.</p>
+
+<!--more -->
 
 
-<p>Domain name servers store information about part of the domain name space called a zone. The name server is authoritative for a particular zone. A single name server can be authoritative for many zones.</p>
+<p>From lot of search on google, I found that its issue with ruby 1.8.7 incomatibility. There is an incompatibility issue between Ruby 1.8.7’s String#chars method and the way ActiveSupport::Multibyte::Chars works.</p>
 
-<p>Understanding the difference between a zone and a domain is sometimes confusing. A zone is simply a portion of a domain. For example, the Domain codingarena.in may contain all of the data for codingarena.in, blog.codingarena.in and sandbox.codingarena.in. However, the zone codingarena.in contains only information for codingarena.in and references to the authoritative name servers for the subdomains.</p>
+<p>Then, I started searching fix / solution for this incompatibity.
+And, Finally I got solution.</p>
 
-<p>The zone codingarena.in can contain the data for subdomains of codingarena.in if they have not been delegated to another server. For example, blog.codingarena.in may manage its own delegated zone. sandbox.codingarena.in may be managed by the parent, codingarena.in.
-If there are no subdomains, then the zone and domain are essentially the same. In this case the zone contains all data for the domain.</p>
+<p>If you use any ActionView helper methods such as truncate and also happen to be running ruby 1.8.7 with Rails > 2.0.2 Insert this into the top of your environment.rb:</p>
 
-<h2>Understanding zones</h2>
+<pre><code>unless '1.9'.respond_to?(:force_encoding) 
+  String.class_eval do 
+   begin 
+    remove_method :chars 
+   rescue NameError 
+    # OK 
+   end 
+ end
+end
+</code></pre>
 
-<p>DNS data is divided into manageable sets of data called zones. Zones contain name and IP address information about one or more parts of a DNS domain. A server that contains all of the information for a zone is the authoritative server for the domain. Sometimes it may make sense to delegate the authority for answering DNS queries for a particular subdomain to another DNS server. In this case, the DNS server for the domain can be configured to refer the subdomain queries to the appropriate server.</p>
+<p>&mdash;</p>
 
-<p>For backup and redundancy, zone data is often stored on servers other than the authoritative DNS server. These other servers are called secondary servers, which load zone data from the authoritative server. Configuring secondary servers allows you to balance the demand on servers and also provides a backup in case the primary server goes down. Secondary servers obtain zone data by doing zone transfers from the authoritative server. When a secondary server is initialized, it loads a complete copy of the zone data from the primary server. The secondary server also reloads zone data from the primary server or from other secondaries for that domain when zone data changes.</p>
+<p>Manu S Ajith</p>
 
-<p>WHAT RECORDS MAKE UP THE DNS ZONE? HERE ARE SOME
-* NS  specifies which are the DNS servers for your domain. For example the DNS servers at lethost host are waiting for requests that are a DNS/Domain pair that it will redirect to its correct IP
-* A &ndash; specifies IP addresses corresponding to your domain and its subdomains. So we can presum that the A-record is always set in the background when using a shared hosting package. So when a website request for mysite.ie arrives at letshosts name servers then they check the DNS zone for that domain, see the correct a-records (their IP for the domin), then hey-presto.
-* MX  specifies where the emails for your domain should be delivered. Again I presume this is set automatically in the background. OR maybe the same mailserver is set for the entire DNS server (a default) rather than for each domain. Hmm I wonder.
-* CNAME &ndash; The history of the term CNAME is this. A canonical name is the properly denoted host name of a computer or network server. Canonical means according to the rules. A CNAME specifies an alias or nickname for a canonical host name record.</p>
-
-<p>A computer hosting a Web site must have an IP address in order to be connected to the World Wide Web. The DNS resolves the computer??s domain name to its IP address, but sometimes more than one domain name resolves to the same IP address, and this is where the CNAME is useful. A machine can have an unlimited number of CNAME aliases, but a separate CNAME record must be in the database for each alias.</p>
-
-<p><a title="Neo" href="http://facebook.com/manusajith" target="_blank">Manu</a></p>
-
-<p><a title="Codingarena.in" href="http://codingarena.in" target="_blank"><a href="http://codingarena.in">http://codingarena.in</a></a></p>
-
-<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
+<p><a href="http://twitter.com/manusajith/" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith/" title="Twitter">Git</a></p>
 </div>
 
 
@@ -184,15 +191,22 @@ If there are no subdomains, then the zone and domain are essentially the same. I
   
 
 
-<time datetime="2012-03-31T00:00:00+05:30" pubdate data-updated="true"></time> - 
+<time datetime="2013-11-25T13:55:31+05:30" pubdate data-updated="true">Nov 25<span>th</span>, 2013</time> - 
       
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/1-dot-8-6/'>1.8.6</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/ruby-1-dot-8-7/'>Ruby-1.8.7</a>, <a class='category' href='/blog/categories/plugins/'>plugins</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained/" data-via="manusajith" data-counturl="http://manusajith.github.io/blog/2012/03/31/dns-zone-dns-records-explained/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/" data-via="manusajith" data-counturl="http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/" >Tweet</a>
   
   
   
@@ -202,15 +216,19 @@ If there are no subdomains, then the zone and domain are essentially the same. I
 
     
     
-      <a class="pull-left" href="/blog/2012/03/30/virtual-credit-card-using-entropay/" title="Previous Post: Virtual Credit Card using Entropay">&laquo; Virtual Credit Card using Entropay</a>
+      <a class="pull-left" href="/blog/2013/11/22/mathjax-rails/" title="Previous Post: mathjax-rails">&laquo; mathjax-rails</a>
     
-    
-      <a class="pull-right" href="/blog/2012/04/02/robot-txt/" title="Next Post: Robot.txt file on your server">Robot.txt file on your server &raquo;</a>
     
   </footer>
 
 </div>
 
+        
+          <div class="article-format">
+            <h1>Comments</h1>
+            <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+          </div>
         
       </article>
     </div>
@@ -318,7 +336,10 @@ If there are no subdomains, then the zone and domain are essentially the same. I
       var disqus_shortname = 'codingarenablog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/';
+        var disqus_url = 'http://manusajith.github.io/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
