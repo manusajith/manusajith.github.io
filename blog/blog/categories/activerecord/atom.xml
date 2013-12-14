@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ruby, | Codingarena]]></title>
-  <link href="http://manusajith.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <title><![CDATA[Category: ActiveRecord, | Codingarena]]></title>
+  <link href="http://manusajith.github.io/blog/categories/activerecord/atom.xml" rel="self"/>
   <link href="http://manusajith.github.io/"/>
   <updated>2013-12-15T04:33:03+05:30</updated>
   <id>http://manusajith.github.io/</id>

@@ -127,6 +127,74 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/blog/2013/12/15/identity-map-in-rails/">Identity_map_in_rails</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-15T04:07:41+05:30" pubdate data-updated="true">Dec 15<span>th</span>, 2013</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/blog/categories/activerecord/'>ActiveRecord,</a>, <a class='category' href='/blog/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/blog/categories/ruby/'>Ruby,</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was recently working on a project that was&#8217;nt maintained for some time and the test cases were failing too. I started upgrading the application to the latest version and some of the test cases were still failing.
+Looking deeper into the logs I could find that I was getting an wierd error with IdentityMap when using with a Rails4 app. I did some googling and found that identity_map was removed from Rails4.</p>
+
+<h2>What is IdentityMap ?</h2>
+
+<p>Ensures that each object gets loaded only once by keeping every loaded object in a map. Looks up objects using the map when referring to them. More details on the IdentityMap pattern can be found <a href="" title="http://www.martinfowler.com/eaaCatalog/identityMap.html">here</a> on a blog post by Martin Fowler</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/blog/2013/12/15/identity-map-in-rails/">Read on &rarr;</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/">Fix for Ruby 1.8.7 Incompatibity - Undefined Method for Enumerable Bug</a></h1>
     
     
@@ -656,62 +724,6 @@ uses an older version that you are not ready to bring up to date. What do you do
 
       </article>
     
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/blog/2012/08/19/nginx-php-important-security-issue/">Nginx & PHP Important Security Issue</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <a href="https://plus.google.com/110007023591027468321?rel=author"><span class="fn">Manu S Ajith</span></a></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-19T00:00:00+05:30" pubdate data-updated="true"></time> - 
-        
-
-
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A critical security issue has recently been pointed out on servers that run Nginx and PHP via FastCGI. The issue allows anyone to execute their own PHP code on the system, I don&rsquo;t think I have to remind you of the consequences this could have. I will attempt to provide a simple explanation of the issue and more importantly how to fix it.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/blog/2012/08/19/nginx-php-important-security-issue/">Read on &rarr;</a>
-    </footer>
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -735,6 +747,10 @@ uses an older version that you are not ready to bring up to date. What do you do
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/blog/2013/12/15/identity-map-in-rails/">identity_map_in_rails</a>
+        </li>
+      
+        <li>
           <a href="/blog/blog/2013/11/25/fix-for-ruby-1-dot-8-7-incompatibity-undefined-method-for-enumerable-bug/">Fix for ruby 1.8.7 incompatibity - undefined method for Enumerable bug</a>
         </li>
       
@@ -748,10 +764,6 @@ uses an older version that you are not ready to bring up to date. What do you do
       
         <li>
           <a href="/blog/blog/2013/04/08/pdf-generation-in-rails-with-wicked_pdf/">PDF generation in Rails</a>
-        </li>
-      
-        <li>
-          <a href="/blog/blog/2012/11/22/google-code-jam/">Google Code Jam</a>
         </li>
       
     </ul>
