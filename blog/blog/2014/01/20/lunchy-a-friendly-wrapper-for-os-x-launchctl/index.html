@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Mount an NTFS Filesystem on CentOS - Codingarena</title>
+  <title>lunchy: A friendly wrapper for OS X launchctl - Codingarena</title>
   <meta name="author" content="Manu S Ajith">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="Installing required packages Install the following packages yum install fuse fuse-ntfs-3g If the rpmforge repo is disabled by default, yum -- &hellip;">
+  <meta name="description" content="If you run OS X, you’ve probably encountered some frustration with Apple’s launchctl command line options when starting, stopping, and restarting &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,20 +21,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/">
+  <link rel="canonical" href="http://manusajith.github.io/blog/2014/01/20/lunchy-a-friendly-wrapper-for-os-x-launchctl/">
   <link href="/blog/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Codingarena" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Codingarena" />
-  <meta name="og:title" content="How to Mount an NTFS Filesystem on CentOS" />
-  <meta name="og:description" content="Installing required packages Install the following packages yum install fuse fuse-ntfs-3g If the rpmforge repo is disabled by default, yum -- &hellip;" />
-  <meta name="og:url" content="http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/"/>
-  <meta name="url" content="http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/">
+  <meta name="og:title" content="lunchy: A friendly wrapper for OS X launchctl" />
+  <meta name="og:description" content="If you run OS X, you’ve probably encountered some frustration with Apple’s launchctl command line options when starting, stopping, and restarting &hellip;" />
+  <meta name="og:url" content="http://manusajith.github.io/blog/2014/01/20/lunchy-a-friendly-wrapper-for-os-x-launchctl/"/>
+  <meta name="url" content="http://manusajith.github.io/blog/2014/01/20/lunchy-a-friendly-wrapper-for-os-x-launchctl/">
   
-  <meta name="subject" content=""/>
-  <meta name="category" content=""/>
+  <meta name="subject" content="GemOSXRuby"/>
+  <meta name="category" content="GemOSXRuby"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -88,7 +88,7 @@
 
   <header>
     
-      <h1 class="entry-title">How to Mount an NTFS Filesystem on CentOS</h1>
+      <h1 class="entry-title">Lunchy: A Friendly Wrapper for OS X Launchctl</h1>
     
     
       <p class="meta">
@@ -113,8 +113,15 @@
   
 
 
-<time datetime="2012-06-28T00:00:00+05:30" pubdate data-updated="true"></time> - 
+<time datetime="2014-01-20T22:27:17+05:30" pubdate data-updated="true">Jan 20<span>th</span>, 2014</time> - 
         
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gem/'>Gem</a>, <a class='category' href='/blog/categories/osx/'>OSX</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
 
 
         
@@ -123,49 +130,80 @@
   </header>
 
 
-  <div class="entry-content"><h2>Installing required packages</h2>
+  <div class="entry-content"><p>If you run OS X, you’ve probably encountered some frustration with Apple’s launchctl command line options when starting, stopping, and restarting your launchd daemons. Whereas most things Apple are minimalist, launchctl options are quite verbose.</p>
 
-<h3>Install the following packages</h3>
+<!--more -->
 
-<pre><code>yum install fuse fuse-ntfs-3g
+
+<p>For example, how many times have you installed a Homebrew package only to get met with something like:</p>
+
+<p>If this is your first install, automatically load on login with:</p>
+
+<pre><code>cp /usr/local/Cellar/mongodb/1.6.5-x86_64/org.mongodb.mongod.plist ~/Library/LaunchAgents
+launchctl load -w ~/Library/LaunchAgents/org.mongodb.mongod.plist
 </code></pre>
 
-<p>If the rpmforge repo is disabled by default,</p>
+<p>If this is an upgrade and you already have the org.mongodb.mongod.plist loaded:</p>
 
-<pre><code>yum --enablerepo=rpmforge install fuse fuse-ntfs-3g
-yum install ntfs-3g
-yum install ntfsprogs ntfsprogs-gnomevfs
+<pre><code>launchctl unload -w ~/Library/LaunchAgents/org.mongodb.mongod.plist
+cp /usr/local/Cellar/mongodb/1.6.5-x86_64/org.mongodb.mongod.plist ~/Library/LaunchAgents
+launchctl load -w ~/Library/LaunchAgents/org.mongodb.mongod.plist
 </code></pre>
 
-<h3>Mounting an NTFS filesystem</h3>
+<p>Or start it manually:</p>
 
-<p>Suppose your ntfs filesystem is /dev/sda1 and you are going to mount it on /mymnt/win, do the following.</p>
-
-<p>First, create a mount point.</p>
-
-<pre><code>mkdir /mymnt/win
+<pre><code>mongod run --config /usr/local/Cellar/mongodb/1.6.5-x86_64/mongod.conf
 </code></pre>
 
-<p>Next, edit /etc/fstab as follows. To mount read-only:</p>
+<p>So to crank up Mongo you want me to pass that entire path to launchctl?</p>
 
-<pre><code>/dev/sda1       /mymnt/win   ntfs-3g  ro,umask=0222,defaults 0 0
+<p>Lunchy – “Start your agents and go to lunch”
+Thank goodness there’s Lunchy from Mike Perham. Lunchy simplifies the command line interface to launchctl. To get started, install the gem:</p>
+
+<p>gem install lunchy
+Now we can list all of our agents with ls</p>
+
+<pre><code>$lunchy ls
+  com.adobe.AAM.Updater-1.0
+  com.adobe.CS5ServiceManager
+  com.apple.FTMonitor
+  com.apple.apsd-ft
+  com.apple.imagent
+  com.apple.marcoagent
+  com.bjango.istatlocal
+  com.embercode.TVShowsHelper
+  com.github.dotjs
+  com.google.keystone.agent
+  com.mysql.mysqld
+  com.wacom.pentablet
+  net.culater.SIMBL.Agent
+  net.sourceforge.tvshows
+  org.mongodb.mongod
+  org.postgresql.postgres
+  ws.agile.1PasswordAgent
 </code></pre>
 
-<p>To mount read-write:</p>
+<p>… and start MongoDB with</p>
 
-<pre><code>/dev/sda1       /mymnt/win   ntfs-3g  rw,umask=0000,defaults 0 0
+<pre><code>lunchy start mongo
 </code></pre>
 
-<p>You can now mount it by running:</p>
+<p>To see the full range of options, just type lunchy with no arguments:</p>
 
-<pre><code>mount /mymnt/win
+<p>Supported commands:</p>
+
+<pre><code>ls [pattern]       Show the list of installed agents, with optional [pattern] filter
+start [pattern]    Start the first agent matching [pattern]
+stop [pattern]     Stop the first agent matching [pattern]
+restart [pattern]  Stop and start the first agent matching [pattern]
+status [pattern]   Show the PID and label for all agents, with optional [pattern] filter
 </code></pre>
 
-<p><a href="http://facebook.com/manusajith">Manu</a></p>
+<p>Got an idea to improve upon Lunchy? Go ahead and fork the project</p>
 
-<p><a href="http://codingarena.in" title="Codingarena">Codingarena</a></p>
+<p><a href="http://github.com/mperham/lunchy">Source on GitHub</a></p>
 
-<p><a href="http://twitter.com/manusajith" title="Twitter">@manusajith</a> | <a href="http://github.com/manusajith" title="Github">@github</a></p>
+<p><a href="http://thechangelog.com/lunchy-a-friendly-wrapper-for-launchctl/">Source: TheChangelog</a></p>
 </div>
 
 
@@ -192,15 +230,22 @@ yum install ntfsprogs ntfsprogs-gnomevfs
   
 
 
-<time datetime="2012-06-28T00:00:00+05:30" pubdate data-updated="true"></time> - 
+<time datetime="2014-01-20T22:27:17+05:30" pubdate data-updated="true">Jan 20<span>th</span>, 2014</time> - 
       
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gem/'>Gem</a>, <a class='category' href='/blog/categories/osx/'>OSX</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/" data-via="manusajith" data-counturl="http://manusajith.github.io/blog/2012/06/28/how-to-mount-an-ntfs-filesystem-on-centos/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://manusajith.github.io/blog/2014/01/20/lunchy-a-friendly-wrapper-for-os-x-launchctl/" data-via="manusajith" data-counturl="http://manusajith.github.io/blog/2014/01/20/lunchy-a-friendly-wrapper-for-os-x-launchctl/" >Tweet</a>
   
   
   
@@ -210,15 +255,19 @@ yum install ntfsprogs ntfsprogs-gnomevfs
 
     
     
-      <a class="pull-left" href="/blog/2012/05/01/installing-ms-core-fonts-on-linux/" title="Previous Post: Installing  MS Core Fonts on Linux">&laquo; Installing  MS Core Fonts on Linux</a>
+      <a class="pull-left" href="/blog/2013/12/15/identity-map-in-rails/" title="Previous Post: identity_map_in_rails">&laquo; identity_map_in_rails</a>
     
-    
-      <a class="pull-right" href="/blog/2012/06/29/adobe-flash-player-11-2-on-fedora-1716-centosrhel-6-25-8/" title="Next Post: Install Adobe Flash Player 11.2 on Fedora 17/16, CentOS/RHEL 6.2/5.8">Install Adobe Flash Player 11.2 on Fedora 17/16, CentOS/RHEL 6.2/5.8 &raquo;</a>
     
   </footer>
 
 </div>
 
+        
+          <div class="article-format">
+            <h1>Comments</h1>
+            <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+          </div>
         
       </article>
     </div>
@@ -326,7 +375,10 @@ yum install ntfsprogs ntfsprogs-gnomevfs
       var disqus_shortname = 'codingarenablog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://manusajith.github.io/blog/2014/01/20/lunchy-a-friendly-wrapper-for-os-x-launchctl/';
+        var disqus_url = 'http://manusajith.github.io/blog/2014/01/20/lunchy-a-friendly-wrapper-for-os-x-launchctl/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
