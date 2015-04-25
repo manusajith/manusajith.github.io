@@ -1,496 +1,685 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset=utf-8>
-<title>..::Personal Webpage of Manu S Ajith::..</title>
-<meta name=viewport content="width=device-width, initial-scale=1.0">
-<meta name=author content="Manu S Ajith">
-<meta name=description content="Manu S Ajith - Senior software craftsman featuring expertise in Ruby on Rails, Coffeescript, web frameworks and other programming languages, a passion for Web 2.0 trends, APIs, mashups and other disruptive technologies">
-<meta name=keywords content="Ruby, Rails, Ruby on Rails, RoR, Javascript, Coffeescript, Hacker,Developer, Programmer">
-<meta name=google-site-verification content=H8fXGu7DBbR1-ofiRE74Nyl9ZGL8vTt-ruBUeibacd0 />
-<link href="css/style.css" rel=stylesheet media=screen>
-<!--[if lt IE 9]>
-	<link rel="stylesheet" type="text/css" href="./css/ie.css" />
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-<link type="text/css" rel=stylesheet href="css/print.css" media=print>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans|Oswald|Droid+Sans|Yanone+Kaffeesatz|Droid+Serif|Ubuntu|Lobster|Francois+One|Arvo|Changa+One|Rokkitt|Nunito|Bitter|Merriweather|Raleway|Pacifico|Josefin+Sans|Questrial|Cantarell|Norican|Vollkorn|Quicksand|Limelight|Cantata+One|Bree+Serif|Oleo+Script|Playfair+Display|Quattrocento+Sans|Berkshire+Swash|Passion+One|Cuprum' rel=stylesheet type='text/css'>
-</head>
-<body class="backgrounded dark" data-spy=scroll data-target=.sidebar-nav>
-<div class="navbar navbar-inverse navbar-fixed-top visible-phone noprint" id=phone-navbar>
-<div class=navbar-inner>
-<div class=container>
-<a class="btn btn-navbar" data-toggle=collapse data-target=.nav-collapse>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</a>
-<a class="btn btn-navbar" href="#" style="padding: 5px 10px 3px;"><i class="icon-white icon-download "></i></a>
-<a class=brand href="#">Manu S Ajith</a>
-<div class="nav-collapse collapse">
-<ul class=nav>
-<li><a href="#about-me" title="About Me" class=scroller>About me</a></li>
-<li><a href="#personal-information" title="Personal Info" class=scroller>Personal Info</a></li>
-<li><a href="#employment" title=Employment class=scroller>Employment</a></li>
-<li><a href="#education" title=Education class=scroller>Education</a></li>
-<li><a href="#skills" title=skills class=scroller>Skills</a></li>
-<li><a href="#profile" title="My Profile" class=scroller>My Profile</a></li>
-<li><a href="#hobbies" title=Hobbies class=scroller>Hobbies</a></li>
-<li><a href="#blog" title=blog class=scroller>Blog</a></li>
-<li><a href="#contact" title=contact class=scroller>Contact</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class=container>
-<div class=row id=content>
-<div class="span3 sbright noprint sbleft" id=sidebar>
-<div class="sidebar-nav equal hidden-phone">
-<ul class="nav nav-list affix" id=resumenav>
-<li><a href="#about-me" title="About Me" class=scroller>About me</a></li>
-<li><a href="#personal-information" title="Personal Info" class=scroller>Personal Info</a></li>
-<li><a href="#employment" title=Employment class=scroller>Employment</a></li>
-<li><a href="#education" title=Education class=scroller>Education</a></li>
-<li><a href="#skills" title=skills class=scroller>Skills</a></li>
-<li><a href="#profile" title="My Profile" class=scroller>My Profile</a></li>
-<li><a href="#hobbies" title=Hobbies class=scroller>Hobbies</a></li>
-<li><a href="#blog" title=blog class=scroller>Blog</a></li>
-<li><a href="#contact" title=contact class=scroller>Contact</a></li>
-</ul>
-</div>
-</div>
-<div class="span9 equal" id=main-content>
-<div class="tools noprint visible-desktop">
-<a href="javascript:if(window.print)window.print()" title=Print data-placement=bottom class="tips glyphicons print"><i></i></a>
-</div>
-<div class="section first-section" id=about-me>
-<div class="row author">
-<div class=span3>
-<img class=img-rounded src="data:image/png;base64,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
-" alt="Manu S Ajith" height="270px;" width="270px;">
-</div>
-<div class=span6>
-<h1> Manu S Ajith</h1><br/>
-<h3 class=primary-color>Rubyist, JS/Coffee , Hacker, Blogger, Open Source Enthusiast</h3>
-</div>
-</div>
-<div class=well>
-<h3>I am Senior Ruby developer/ Js hacker and a blogger.</h3>
-<p class=lead>Senior software craftsman featuring expertise in Ruby on Rails, Coffeescript, web frameworks and other programming languages, a passion for Web 2.0 trends, APIs, mashups and other disruptive technologies, and experience managing teams of talented and passionate young developers.</p>
-</div>
-<div class="social-media noprint">
-<h5>Follow me</h5>
-<div>
-<div class="tips icon-btn" title=Facebook data-placement=bottom><a href="http://facebook.com/manusajith" title=Facebook class="glyphicons white facebook"><i></i></a></div>
-<div class="tips icon-btn" title=Twitter data-placement=bottom><a href="http://twitter.com/manusajith" title=Twitter class="glyphicons white twitter"><i></i></a></div>
-<div class="tips icon-btn" title=Linkedin data-placement=bottom><a href="http://in.linkedin.com/in/manusajith/" title=LinkedIn class="glyphicons white linked_in"><i></i></a></div>
-<div class="tips icon-btn" title=Github data-placement=bottom><a href="http://github.com/manusajith/" title=Github class="glyphicons white github"><i></i></a></div>
-<div class="tips icon-btn" title=Skype data-placement=bottom><a href=skype:manusajith title=Skype class="glyphicons white skype"><i></i></a></div>
-</div>
-</div>
-</div>
-<div class=section id=personal-information>
-<h2 class=section-title><span class="glyphicons user"><i></i></span>Personal Information<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<div class=row>
-<div class="infoline span9 first"><div class=row>
-<div class="span2 muted">Date of birth</div>
-<div class=span7>May 14, 1990</div>
-</div></div>
-<span class=clear></span>
-<div class="infoline span9"><div class=row>
-<div class="span2 muted">Address</div>
-<div class=span7>
-Srambickal House<br/>
-Arattuvazhy Ward<br/>
-Alappuzha <br>
-Kerala
-</div>
-</div></div>
-<span class=clear></span>
-<div class="infoline span9"><div class=row>
-<div class="span2 muted">Email</div>
-<div class=span7>neo@codingarena.in</div>
-</div></div>
-<span class=clear></span>
-<div class="infoline span9"><div class=row>
-<div class="span2 muted">Phone</div>
-<div class=span7>
-+91 9447 786 299<br/>
-</div>
-</div></div>
-<span class=clear></span>
-<div class="infoline span9 last"><div class=row>
-<div class="span2 muted">Website</div>
-<div class=span7><a href="http://codingarena.in/" title=Codingarena>codingarena.in</a></div>
-</div></div>
-<span class=clear></span>
-</div>
-</div>
-<div class=section id=employment>
-<h2 class=section-title><span class="glyphicons share_alt"><i></i></span>Employment<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<div class=timeline>
-<div class=timeline-item>
-<div class=timeline-item-date>2014 - present</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_minus" data-toggle=collapse data-target="#position1"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position1">Security Consultant</h3>
-<div class="collapse in" id=position1>
-<p><small class=muted>2014 - present</small></p>
-<h4 class="media-heading primary-color">Freelance Security Consultant.</h4>
-<p>Working as a freelance security consultant for clients and affiliates of <a href="http://startupnomads.com" title=Startupnomads>Startupnomads</a>, providing Cyber security analysis and protecting websites and networks from
-cyber threats, such as malware, denial-of-service attacks and viruses.</p>
-</div>
-</div>
-</div>
-<span class=clear></span>
-<div class=timeline-item>
-<div class=timeline-item-date>2012 - now</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_minus" data-toggle=collapse data-target="#position2"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position2">Senior Ruby Developer @ Ruby Kitchen Technosol</h3>
-<div class="collapse in" id=position2>
-<p><small class=muted>from 2012 to present day</small></p>
-<h4 class="media-heading primary-color">Program Lead </h4>
-<p>Senior software Engineer responsible for building enterprise level applications from scratch, fine tuning it for performance, scaling it up to meet the demanding needs of the web. Mainly a Solution architect and a DB architect, who loves to stay behind the scenes(as a back-end engineer), but doesnt feel shy to get hands dirty in front-end development. Also a hacker who always scans for XSS, CSRF, LFI, RFI and loves to play with shell scripts (sudo rm -RF is one of my favourite commands, juz kidding ;)). Sometimes fits in the role of a 'Chef' (DevOps, they call it these days) along with 'Jenkins', 'Travis' and 'Capristano'. Also a mentor for novice and trainer for the newbies.</p>
-<p><a href="http://rubykitchen.in" title="Ruby Kitchen" class=noprint>&rarr; View website</a></p>
-</div>
-</div>
-</div>
-<span class=clear></span>
-<div class=timeline-item>
-<div class=timeline-item-date>2009 - 2012</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_plus" data-toggle=collapse data-target="#position3"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position3">Freelance Web Developer</h3>
-<div class=collapse id=position3>
-<p><small class=muted>from 2009 to 2011</small></p>
-<h4 class="media-heading primary-color">LAMP Stack Developer</h4>
-<p>Worked as a freelance web developer building websites and applications using the LAMP Stack.</p>
-</div>
-</div>
-</div>
-<span class=clear></span>
-</div>
-<div class=section id=education>
-<h2 class=section-title><span class="glyphicons certificate"><i></i></span>Education<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<div class=timeline>
-<div class=timeline-item>
-<div class=timeline-item-date>2008 - 2012</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_minus" data-toggle=collapse data-target="#education1"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#education1">B.Tech in Computer Science and Engineering</h3>
-<div class="collapse in" id=education1>
-<p><small class=muted>from 2008 to 2012</small></p>
-<h4 class="media-heading primary-color">Completed B.Tech from <a href="http://cusat.ac.in" title=CUSAT>CUSAT</a></h4>
-<p>You wouldn't be much interested in this section unless you are a father of a beautiful young girl who is looking for a bridegroom for her ;)</p>
-</div>
-</div>
-</div>
-<span class=clear></span>
-<div class=timeline-item>
-<div class=timeline-item-date>2012 - </div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_plus" data-toggle=collapse data-target="#education2"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#education2">Red Hat Certifed Engineer</h3>
-<div class=collapse id=education2>
-<p><small class=muted>from 2012 to present</small></p>
-<h4 class="media-heading primary-color">RHCE</h4>
-<p>Obtained Red Hat Certification for RHEL 6 - License 120-026-158</p>
-</div>
-</div>
-</div>
-<span class=clear></span>
-</div>
-</div>
-<div class="section skills" id=skills>
-<h2 class=section-title><span class="glyphicons cogwheels"><i></i></span>Skills<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<div class=row>
-<div class=span2>Programming Languages</div>
-<div class=span7>
-<span class=label>Ruby</span>
-<span class=label>PHP</span>
-<span class=label>Shell</span>
-<span class=label>Python</span>
-<span class=label>JavaScript</span>
-<span class=label>CoffeeScript</span>
-</div>
-</div>
-<span class=spacer></span>
-<div class=row>
-<div class=span2>Server Side Frameworks</div>
-<div class=span7>
-<span class=label>Ruby on Rails</span>
-<span class=label>Sinatra</span>
-<span class=label>Cuba</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Client Side Frameworks</div>
-<div class=span7>
-<span class=label>Angular JS</span>
-<span class=label>Backbone JS</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Client Side Libraries</div>
-<div class=span7>
-<span class=label>jQuery</span>
-<span class=label>Yoeman</span>
-<span class=label>D3js</span>
-<span class=label>Twtter Bootstrap</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Databases</div>
-<div class=span7>
-<span class=label>MySQL</span>
-<span class=label>PostgreSQL</span>
-<span class=label>MongoDB</span>
-<span class=label>CouchDB</span>
-<span class=label>Redis</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Web/Proxy Server</div>
-<div class=span7>
-<span class=label>Apache</span>
-<span class=label>Nginx</span>
-<span class=label>Passenger</span>
-<span class=label>Puma</span>
-<span class=label>Unicorn</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Templates</div>
-<div class=span7>
-<span class=label>Erb</span>
-<span class=label>Haml</span>
-<span class=label>Slim</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Testing</div>
-<div class=span7>
-<span class=label>Rspec</span>
-<span class=label>Factory Girl</span>
-<span class=label>Cuccumber</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Version Control</div>
-<div class=span7>
-<span class=label>Git</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>CI</div>
-<div class=span7>
-<span class=label>Jenkins</span>
-<span class=label>Capistrano</span>
-<span class=label>Chef</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>OS</div>
-<div class=span7>
-<span class=label>Ubuntu</span>
-<span class=label>Centos</span>
-<span class=label>Open Suse</span>
-<span class=label>Mac</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Server</div>
-<div class=span7>
-<span class=label>System Administration</span>
-<span class=label>Server Management</span>
-<span class=label>Security Assessment</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Cloud</div>
-<div class=span7>
-<span class=label>Amazon Web Services</span>
-<span class=label>Heroku</span>
-</div>
-</div>
-<div class=row>
-<div class=span2>Other</div>
-<div class=span7>
-<span class=label>System Design</span>
-<span class=label>Database Design</span>
-<span class=label>Performance Tuning</span>
-</div>
-<div>
-</div>
-<div class=section id=profile>
-<h2 class=section-title><span class="glyphicons comments"><i></i></span>My Profile<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<div class=testimonial>
-<h3>Journey from a Newbie to novice to professional</h3>
-<p>I'm 24 years old, from the "Venice of the East", the very own "Gods own country", Kerala, who codes Ruby, JS for a living, hacks for fun and learns for passion.
-I completed my schooling from Matha Senior Secondary School School and Govt: H S S, Kalavoor. With a passion to learn more about the technology and computers I joined College of Engineering Chengannur(CEC). After a run-in with Laplace and Fourier equations and a few bouts with the calculus, I decided to spend more time partying and switched to interest to programming. I often wondered if I'd made the wrong decision. But I believe that, there are scientists and mathematicians and pilots and doctors and teachers and others of all professions but, in the end, it is the engineer who takes ideas from paper and creates material things that work. There is much to be gained from understanding an engineer's practical perspective, and so I still believe I have made the right decision.</p>
-<h3>Love what you do and do what you love.</h3>
-<p>
-Started as a LAMP Stack web developer, building simple websites, gained exposure and experience to enterprise level web applications, frameworks and portals that included complex business logic, analytics, and financial merchant payment gateways. <br>
-I found my niche in my programming career when I started developing MVPs using Ruby on Rails. Converting ideas from paper to prototype and then to MVP and scaling it up was always challenging and interesting. I enjoyed the way of transformation whether its bootstraping an application using Rails 3.2, with mongoDB as choice of database for flexibility in development, front-end using Twitter Bootstrap and jQuery, and Active admin for adminitration and then porting the entire application to Rails 4, using websockets for real time communication, using Angular JS to communicate over the APIs, using Delayed Jobs/Resque/Sidekiq for scheduling long running tasks and sharding the database across multiple instance of EC2.
-</p>
-<h3>Experience Gained or Challenges I loved the most.</h3>
-<p>
-<h4>Automate a Legacy system</h4>
-<blockquote>The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency. -- Bill Gates.</blockquote>
-Automate a legacy system, from paper works, of a company, running across its various branches distributed all over kerala, to a fully functional CRM and help them increase their productivity and efficiency was a major challenge. Build an easy to understand UI so that the users can get adapted to the new UX, and at the same time meeting custom specific requirements.
-</p>
-<p>
-<h4>Build complex analytical engine</h4>
-<blockquote>There is a magic in graphs. The proﬁle of a curve reveals in a ﬂash a whole situation — the life history of an epidemic, a panic, or an era of prosperity. The curve informs the mind, awakens the imagination, convinces. --- Henry D. Hubbard</blockquote>
-Build a complex analytical engine that predicts and projects the financial status of an individual based on his current financial assets and a set of behavioral patterns of his budget, with margin of error almost close to zero, an interesting as well as technically challenging task.<br> Pin point calculations and data mining through various levels of data, processing complex queries over more than a million records to find the best combination was an exigent task. Code optimization and performance tuning was the key at every step in order to keep the users abstracted from the underlying complex architecture.
-</p>
-<p>
-<h4>An MVP to a fully featured Product</h4>
-<blockquote>
-"Everything should be made as simple as possible, but not simpler." -- Albert Einstein
-</blockquote>
-<p>
-Build, Break, Fix, Build, Repeat. From idea to prototype and to a public beta, the various steps when it comes to building a product. The "Aha" moment for a developer is when the product you had been working on for day and night goes into public beta and the first user signs up. Building a prototype is always an easy thing for a developer, but to take it forward to an MVP and then finally to a fully featured product needs some top-notch developer experience. Adding new features and modules to a system that is running live, at the same time scaling it for meeting the increasing concurrent users without downtime or issues was always challenging.
-</p>
-</p>
-<p>
-<h4>Hack the code - the White Hat Hackers Way.</h4>
-Today bringing your business online is a must in an effective business development strategy. Thus more and more sensitive data is moving to the web. There are always web security risks in any kind of web application, whether it was an off-the-shelf solution, an outsourced project, or developed in-house. Such issues include Cross Site Scripting (XSS), input validation, database escaping, URI security, de-registering globals, error reporting, and intentional or accidental 'back-doors'. I have worked as a security consultant for some startups based in Italy, Germany and UK remotely, offering penetration testing, and security auditing services.
-</p>
-<h3>Take what you can, Give nothing back..!! (Really ? )</h3>
-<p>
-This pirate toast is best suited when its said by Capt. Jack Sparrow. But what does it have to do with a developer ?. Sadly the new developers coming to the programming community tend to possess this attitude. They take every available resource from the community for their benefit and returns nothing back to the community. <br>
-The older folks understand the importance of community and try to give back the community thier knowledge and experience as Open Source Contributions. Cant imagine those days if <a href="https://twitter.com/yukihiro_matz" title=Matz>Matz</a> had not open sourced <a href="https://www.ruby-lang.org/en/" title=Ruby>Ruby</a> or had <a href="http://twitter.com/dhh" title=DHH>DHH</a> kept <a href="http://rubyonrails.org/" title="Ruby on Rails">Rails</a> behind <a href="https://basecamp.com/" title=BaseCamp>BaseCamp</a>, or had <a href="https://twitter.com/jeresig" title="John Resig">John Resig </a>not released <a href="http://jquery.com" title=jQuery>jQuery</a>. Being one of those developers who benefitted from the programming community, I always had an urge to give something back to the community(doesn't claim my contributions to be legendary). My humble contribution to the Open Source Community invove a few <a href="https://rubygems.org/profiles/manusajith" title="Ruby Gems">gems, </a> contributions to some Ruby, JS libraries to keep it up to date.
-<br> Currently I contribute to <a href="https://github.com/codebrew/backbone-rails" title="backbone rails">Backbone-rails</a>,
-<a href="https://github.com/crowdint/rails3-jquery-autocomplete" title=Rails3-jquery-autocomplete>Rails3-jquery-autocomplete</a>, <a href="https://github.com/pmq20/mathjax-rails" title="Mathjax Rails">mathjax_rails</a>.<br>
-Some other interesting stuff that I work on can be found <a href="code/index.html" title=Code>here</a>. I also find some time to mentor the budding developers remotely who needs guidance of an experienced developer to review their code.
-<h4>Open source Contributions</h4>
-Maintainer of
-<a href="https://github.com/codebrew/backbone-rails" title="backbone rails">Backbone-rails</a>,
-<a href="https://github.com/crowdint/rails3-jquery-autocomplete" title=rails3-jquery-autocomplete>rails3-jquery-autocomplete</a>,
-<a href="https://github.com/pmq20/mathjax-rails" title="Mathjax Rails">mathjax_rails</a>.
-</p>
-</p>
-</div>
-</div>
-<div class="section hobbies" id=hobbies>
-<h2 class=section-title><span class="glyphicons heart_empty"><i></i></span>Hobbies<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<div class=row>
-<div class=span9>
-<span class="label tips mobtoo" title="">
-<span class="glyphicons white film"><i></i>Movies</span>
-</span>
-<span class=label><span class="glyphicons white gamepad"><i></i>Video games</span></span>
-<span class=label><span class="glyphicons white globe"><i></i>Traveling</span></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<span class=clear></span>
-<div class=section id=blog>
-<h2 class=section-title><span class="glyphicons share_alt"><i></i></span>Blog<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<div class=timeline>
-<div class=timeline-item>
-<div class=timeline-item-date>Codingarena</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_minus" data-toggle=collapse data-target="#position5"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position5">My Personal Blog</h3>
-<div class="collapse in" id=position5>
-<h4 class="media-heading primary-color">My scratch pad </h4>
-<p>This is where I scribble down my learnings.</p>
-<p><a href="http://codingarena.in/blog" title="Codingarena Blog" class=noprint>&rarr; View website</a></p>
-</div>
-</div>
-</div>
-<div class=timeline-item>
-<div class=timeline-item-date>Open Source For You</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_plus" data-toggle=collapse data-target="#position9"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position6">Open Source For You(Former Linux For You - LFY) Magazine</h3>
-<div class=collapse id=position9>
-<p>Published an article on Open Source For You (former Linux For You) Magazine about blogging with Jekyll and Github pages.</p>
-</div>
-</div>
-</div>
-<span class=clear></span>
-<div class=timeline-item>
-<div class=timeline-item-date>Company Blog</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_plus" data-toggle=collapse data-target="#position6"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position6">Blog of Ruby Kitchen</h3>
-<div class=collapse id=position6>
-<p>Comapany's official blog.</p>
-<p><a href="http://rubykitchen.in/blog" title="Ruby kitchen Blog" class=noprint>&rarr; View website</a></p>
-</div>
-</div>
-</div>
-<div class=timeline-item>
-<div class=timeline-item-date>Site Point</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_plus" data-toggle=collapse data-target="#position7"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position7">Site Point Ruby(Former Ruby Source)</h3>
-<div class=collapse id=position7>
-<p>Guest post at Site point ruby (former Ruby Source).</p>
-<p>An article on Active Support, How AR helps a Rails developer</p>
-<p>An article on N+1 Query problem and Bullet gem</p>
-<p>An article on XMPP and XMPP4R gem</p>
-<p>An article on Bitcoin</p>
-<p>An article on ORM in Ruby</p>
-<p><a href="http://www.sitepoint.com/author/majith" title="Site Point" class=noprint>&rarr; View website</a></p>
-</div>
-</div>
-</div>
-<div class=timeline-item>
-<div class=timeline-item-date>Codelearn</div>
-<div class=timeline-item-trigger><span class="glyphicons white circle_plus" data-toggle=collapse data-target="#position8"><i></i></span></div>
-<div class=timeline-arrow><i></i></div>
-<div class=timeline-item-content>
-<h3 class=timeline-item-title data-toggle=collapse data-target="#position8">Codelearn</h3>
-<div class=collapse id=position8>
-<p>Guest post at codelearn.</p>
-<p>An article on different caching mechanisms in Rails</p>
-<p>An article on N+1 Query problem and Bullet gem</p>
-<p><a href="http://www.codelearn.org/blog/rails-cache-with-examples" title=Codelearn class=noprint>&rarr; View website</a></p>
-</div>
-</div>
-</div>
-<span class=clear></span>
-</div>
-<span class=clear></span>
-<div class=section id=contact>
-<div style="min-height:940px;">
-<h2 class=section-title><span class="glyphicons share_alt"><i></i></span>Contact<a href="#phone-navbar" class="top visible-phone"><span class="glyphicons white up_arrow"><i></i></span></a></h2>
-<h3>Contact me today!</h3>
-<p> I am currently available for freelance/contract/part-time/consulatation works. Drop me a <a href="mailto:neo@codingarena.in?subject=Consultation" "mail">mail</a> and we can discuss more.
-</div>
-</div>
-</div>
-<span class=clear></span>
-</div>
-</div>
-<div id=footer>
-<p> Manu S Ajith - 2011-2014</p>
-</div>
-</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/scripts.js" async defer></script>
-<script async defer>var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-30559513-1']);_gaq.push(['_setDomainName','codingarena.in']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
-<script async defer>var sc_project=7812576;var sc_invisible=1;var sc_security="f92f88b4";</script>
-<script src="http://www.statcounter.com/counter/counter.js" defer async></script>
-<noscript><div class=statcounter><a title="free hit
-counters" href="http://statcounter.com/free-hit-counter/" target=_blank><img class=statcounter src="http://c.statcounter.com/7812576/0/f92f88b4/1/" alt="free hit counters"></a></div></noscript>
-</body>
+<html lang="en">
+
+  <head>
+    <title>..::Manu S Ajith::.. - Personal website of Manu S Ajith.</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content='Ruby, Rails, Ruby on Rails, front end developer, ruby on rails front end developer, chicago developer, chicago ruby on rails, front end rails developer' name='description'>
+    <meta content='rails programmers, job ruby, open source software consulting, ruby systems, open source software development, ruby development, development ruby, ruby web design, ruby training, ruby web development, web development with ruby, web development ruby, ruby developer, ruby programmer, ruby application development, ruby programmers ruby consulting, ruby software development, open source website development software, ruby freelance, ruby consultant, web applications software, ruby developers, ruby mobile development, front end developer, ruby on rails front end developer, chicago developer, chicago ruby on rails' name='keywords'>
+    <meta content='Manu S Ajith' name='author'>
+    <meta content='index,follow' name='robots'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Personal website of Manu S Ajith" />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!--CSS styles-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/perfect-scrollbar-0.4.5.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link id="theme-style" rel="stylesheet" href="css/styles/default.css">
+    <!--/CSS styles-->
+
+    <!--Javascript files-->
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+
+    <script type="text/javascript" src="js/modernizr.custom.63321.js"></script>
+    <script type="text/javascript" src="js/jquery.dropdownit.js"></script>
+
+    <script type="text/javascript" src="js/jquery.stellar.min.js"></script>
+    <script type="text/javascript" src="js/ScrollToPlugin.min.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+
+    <script type="text/javascript" src="js/masonry.min.js"></script>
+
+    <script type="text/javascript" src="js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+
+    <script type="text/javascript" src="js/magnific-popup.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+
+    <!--/Javascript files-->
+
+    </head>
+    <body>
+      <div id="wrapper">
+        <a href="#sidebar" class="mobilemenu"><i class="icon-reorder"></i></a>
+          <div id="sidebar">
+            <div id="main-nav">
+              <div id="nav-container">
+                <div id="profile" class="clearfix">
+                  <div class="portrate hidden-xs"></div>
+                  <div class="title">
+                    <h2>Manu S Ajith</h2>
+                    <h3>Enterprenuer | Rubyist | Hacker | Lazy blogger</h3>
+                  </div>
+                </div>
+                  <ul id="navigation">
+                    <li>
+                      <a href="#biography">
+                        <div class="icon icon-user"></div>
+                        <div class="text">About Me</div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#portfolio">
+                        <div class="icon icon-book"></div>
+                        <div class="text">Portfolio</div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#publications">
+                        <div class="icon icon-edit"></div>
+                        <div class="text">Publications</div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#skills">
+                        <div class="icon icon-time"></div>
+                        <div class="text">Skills/Expertise</div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#contact">
+                        <div class="icon icon-calendar"></div>
+                        <div class="text">Contact Me</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="social-icons">
+                <ul>
+                  <li><a href="http://twitter.com/manusajith"><i class="icon-twitter"></i></a></li>
+                  <li><a href="http://github.com/manusajith"><i class="icon-github"></i></a></li>
+                  <li><a href="http://in.linkedin.com/in/manusajith"><i class="icon-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="main">
+              <div id="biography" class="page home" data-pos="home">
+                <div class="pageheader">
+                  <div class="headercontent">
+                    <div class="section-container">
+                      <div class="row">
+                        <div class="col-sm-2 visible-sm"></div>
+                        <div class="col-sm-8 col-md-5">
+                          <div class="biothumb">
+                            <img alt="image" src="http://9piecesof8.com/img/manu.png" class="img-responsive" style="width: 100%;">
+                            <div class="overlay">
+                              <h1 class="">Manu S Ajith</h1>
+                              <ul class="list-unstyled">
+                                <li>Entrepreneur at heart.</li>
+                                <li>Writes code using Ruby and JS for a living.</li>
+                                <li>Curious Hacker.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="clearfix visible-sm visible-xs"></div>
+                        <div class="col-sm-12 col-md-7">
+                          <h3 class="title">Bio</h3>
+                          <p>Senior software craftsman featuring expertise in Ruby, Ruby on Rails, Node.js, AngularJS, Backbone.js web frameworks and other programming languages, a passion for Web 2.0 trends, APIs, mash-ups and other disruptive technologies, and experience managing teams of talented and passionate young developers. High level of knowledge and interest in scalable Web Systems Architecture, Service Oriented Architecture, Data Science, Object Oriented Analysis and Design Patterns, Behavior Driven Development, Re-factoring, Mentoring, and Technical Writing.</p>
+                          <p>A little into my past:</p>
+                          <p>I'm programmer from the "Venice of the East", the very own "Gods own country", Kerala, who codes Ruby, JS for a living, hacks for fun and learns for passion. With a passion to learn more about the technology and computers I joined college for my B.Tech. After a run-in with Laplace and Fourier equations and a few bouts with the calculus, I decided to spend more time partying and switched to interest to programming. I often wondered if I'd made the wrong decision. But I believe that, there are scientists and mathematicians and pilots and doctors and teachers and others of all professions but, in the end, it is the engineer who takes ideas from paper and creates material things that work. There is much to be gained from understanding an engineer's practical perspective, and so I still believe I have made the right decision.</p>
+                          <p>I chose the Red Pill in the initial stages of my professional career and chose the startup way over a corporate MNC path.Jumped onto a startup company in the beginning of my professional career and became the Senior Software Engineer, taking the lead on the design and direction on a lot of the technologies.</p>
+                          <p>I enjoy building software from the ground up. I have a blend of theoretical knowledge and practical experience which often help me get more productive.</p>
+                          <p>Lately my focus has been on full stack web development using Ruby on Rails, JavaScript MVC frameworks and HTML5, along with web application scaling using cloud infrastructure and Amazon Web Services. Although I am solidly into Ruby/Rails/Javascript I keep an open mind to other technology stack and do whatever it takes to get something done properly. I consistently make the right architectural decisions to make a product scalable with minimal friction.</p>
+                          <p>While I’m an advanced Rubyist, I’m also a polyglot programmer with expertise in multiple languages and web frameworks. I love experimenting and creating with the newest and latest technologies.</p>
+                          <p>Working closely with startups and often wearing multiple hats, I have developed a lot of skills over the past years. Along with the web programming, I’ve acquired a solid understanding of business strategy, client relations, branding, interactive designs, budgets, and deadlines, and I now know what it takes to ship the code and make clients happy.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <div id="portfolio" class="page">
+                    <div class="pageheader">
+
+                        <div class="headercontent">
+
+                            <div class="section-container">
+                                <h2 class="title">Portfolio Summary</h2>
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>I consider myself fortunate to have associated with different work cultures ­ from brewing start ups to MNC’s. I have been associated with works that demands rich delicacy and passion, naming few areas here ­ Financial, Health care, Education, Analytics, Security Enhancements.</p>
+                                        <p>I architect, engineer, and code awesome web applications with rich interactive features, and visually appealing user interfaces.</p>
+                                        <p>Ruby on Rails has become my go to technology stack these days.It clearly has a thick advantage over other technology stacks when it comes to rapid web application development and web prototyping. Along with the elegance and awsomeness of Ruby to write clean and beatiful code makes it stand apart.</p>
+                                        <p>When it comes to front-end development, jQuery becomes my default, and I am a fan of Coffeescript. I also write code using MVC frameworks like Angular.js and Backbone.js when it comes to building Single Page Applications or web applications which needs a higher level of interaction.</p>
+                                        <p>My experience with working on legacy code base(Rails 1.1.2, 2.3.x), has helped me understand the importance of testing in software development. I use behavior-driven development (BDD) and test-driven development (TDD) tools like Rspec Cucumber, and Capybara etc. </p>
+                                        <p>I embrace Agile software development methodology that emphasizes teamwork, pair programming, communication, anticipating and embracing change, and the frequent and fast delivery of working software. I use source code repositories like Git.</p>
+                                        <p>Every web application I build will be technically solid, in sync with your business aspects, would reflect your vision, and amazingly effective in attracting and engaging your customers or end users.</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="subtitle text-center">
+                                            <h3>Key Aspects</h3>
+                                        </div>
+                                        <ul class="ul-boxed list-unstyled">
+                                            <li>Prototype, MVP, SaaS.</li>
+                                            <li>Agile, Scrum, Kanban, SDLC</li>
+                                            <li>TDD, BDD, Git.</li>
+                                            <li>Design, Architect, Engineer.</li>
+                                            <li>Full Stack, UI, UX</li>
+                                            <li>Deadlines, Budget, Client Satisfaction.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="publications" class="page">
+                    <div class="page-container">
+                        <div class="pageheader">
+                            <div class="headercontent">
+                                <div class="section-container">
+
+                                    <h2 class="title">Selected Publications</h2>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>I’m an author for Sitepoint, TutsPlus, Linux4you, etc mostly engaging readers in the categories like Ruby, Rails, Web Apps, development practices, linux etc.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pagecontents">
+
+                            <div class="section color-1" id="filters">
+                                <div class="section-container">
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <h3>Filter by type:</h3>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+                                                <option class="filter" value="all" selected>All types</option>
+                                                <option class="filter" value="cpaper">Magazine Articles.</option>
+                                                <option class="filter" value="book">Blog Article</option>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3" id="sort">
+                                            <span>Sort by year:</span>
+                                            <div class="btn-group pull-right">
+
+                                                <button type="button" data-sort="data-year" data-order="desc" class="sort btn btn-default"><i class="icon-sort-by-order"></i></button>
+                                                <button type="button" data-sort="data-year" data-order="asc" class="sort btn btn-default"><i class="icon-sort-by-order-alt"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section color-2" id="pub-grid">
+                                <div class="section-container">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="pitems">
+
+                                                <div class="item mix cpaper" data-year="2014">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+
+
+                                                        </div>
+
+                                                        <h4 class="pubtitle">Make Your Web Pages Livelier with Jekyll </h4>
+                                                        <div class="pubauthor"><strong>Manu S Ajith</strong></div>
+                                                        <div class="pubcite"><span class="label label-warning">Publications</span> Open Source For You | May 2014, Page 58-59</div>
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>GitHub Pages are public Web pages hosted for free by www.github.com. Jekyll, on the other hand, is a simple blog-aware static site generator. This article introduces readers to both GitHub Pages and Jekyll, before demonstrating how the two open source projects can be made to work in tandem to create a wonderful blog.</p>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="item mix book" data-year="2014">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="http://www.sitepoint.com/orm-ruby-introduction/" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+
+                                                        </div>
+
+                                                        <h4 class="pubtitle">
+                                                            ORM in Ruby: An Introduction
+                                                        </h4>
+                                                        <div class="pubauthor"><strong>Manu A Ajith</strong></div>
+                                                        <div class="pubcite">
+                                                            <span class="label label-primary">Blog Article</span> Sitepoint | May 5, 2014
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="pubdetails">
+
+                                                        <h4>Abstract</h4>
+                                                        <p>Anyone with experience in developing web based applications or using a web framework has dealt with relational databases, such as MySQL or PostgreSQL. Dealing with SQL can be a bit scary at times, especially when dealing with data across different tables and applying various filters. <br>This is where ORM comes to the rescue.</p>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="item mix book" data-year="2014">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="http://www.sitepoint.com/introduction-bitcoin/" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+
+                                                        </div>
+
+                                                        <h4 class="pubtitle">
+                                                            An Introduction to Bitcoin
+                                                        </h4>
+                                                        <div class="pubauthor"><strong>Manu A Ajith</strong></div>
+                                                        <div class="pubcite">
+                                                            <span class="label label-primary">Blog Article</span> Sitepoint | March 31, 2014
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="pubdetails">
+
+                                                        <h4>Abstract</h4>
+                                                        <p>Bitcoin is a “digital currency” that’s received quite a bit of attention recently. Where does it come from and how is its value determined? Is it an acceptable way to make/recieve payments as Bitcoins ? Bitcoin is an open-source, peer-to-peer virtual currency that exists purely in digital form. It is the first decentralized peer-to-peer payment […]</p>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="item mix book" data-year="2014">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="http://www.sitepoint.com/introduction-bitcoin/" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+
+                                                        </div>
+
+                                                        <h4 class="pubtitle">
+                                                          Looking at XMPP and the XMPP4R Gem
+                                                        </h4>
+                                                        <div class="pubauthor"><strong>Manu A Ajith</strong></div>
+                                                        <div class="pubcite">
+                                                            <span class="label label-primary">Blog Article</span> Sitepoint | February 26, 2014
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="pubdetails">
+
+                                                        <h4>Abstract</h4>
+                                                        <p>The eXtensible Messaging and Presence Protocol aka as Jabber (the protocol was originally named Jabber and was developed by the Jabber open-source community) is a protocol to exchange messages between 2 entities. Those messages are transmitted over the wire in the XML format. It’s used by Jabber, Google Talk, Google Wave, Pidgin, Kopete, and all sorts of open source instant messaging applications.</p>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="item mix book" data-year="2014">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="http://www.sitepoint.com/introduction-bitcoin/" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+
+                                                        </div>
+
+                                                        <h4 class="pubtitle">
+                                                          The (Silver) Bullet for the N+1 Problem
+                                                        </h4>
+                                                        <div class="pubauthor"><strong>Manu A Ajith</strong></div>
+                                                        <div class="pubcite">
+                                                            <span class="label label-primary">Blog Article</span> Sitepoint | January 9, 2014
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="pubdetails">
+
+                                                        <h4>Abstract</h4>
+                                                        <p>Rails is one of the popular choices when it comes to building your Minimum Viable Products(MVP). You can bootstrap, prototype, and release an application with such ease that Rails is many developers default choce for an MVP. Usually while developing these prototypes, most developers don’t consider the performance indexes, which really shouldn’t be a concern […]</p>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="item mix book" data-year="2014">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="http://www.sitepoint.com/introduction-bitcoin/" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+
+                                                        </div>
+
+                                                        <h4 class="pubtitle">
+                                                          Some Ways ActiveSupport Helps Ruby Developers
+                                                        </h4>
+                                                        <div class="pubauthor"><strong>Manu A Ajith</strong></div>
+                                                        <div class="pubcite">
+                                                            <span class="label label-primary">Blog Article</span> Sitepoint | August 26, 2013
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="pubdetails">
+
+                                                        <h4>Abstract</h4>
+                                                        <p>Ruby is an object-oriented, interpreted language invented by Yukihiro Matsumoto in 1993 that is heavily inspired by Perl and Lisp. Since its inception, Ruby has been designed to be a “joy to use” – meaning a strong focus on readability and elegance. Ruby on Rails, often simply Rails, is an open source web application framework […]</p>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="skills" class="page">
+                    <div class="pageheader">
+                        <div class="headercontent">
+                            <div class="section-container">
+
+                                <h2 class="title">Skills/Expertise</h2>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>Started as a LAMP Stack web developer, building simple websites, gained exposure and experience to enterprise level web applications, frameworks and portals that included complex business logic, analytics, and financial merchant payment gateways. I found my niche in my programming career when I started developing MVPs using Ruby on Rails. Converting ideas from paper to prototype and then to MVP and scaling it up was always challenging and interesting. I enjoyed the way of transformation whether its bootstraping an application using Rails 3.2, with mongoDB as choice of database for flexibility in development, front-end using Twitter Bootstrap and jQuery, and Active admin for adminitration and then porting the entire application to Rails 4, using websockets for real time communication, using Angular JS to communicate over the APIs, using Delayed Jobs/Resque/Sidekiq for scheduling long running tasks and sharding the database across multiple instance of EC2.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagecontents">
+                        <div class="section color-2">
+                          <div class="section-container">
+                            <div class="row">
+                              <div class="col-md-10 col-md-offset-1">
+                                <div class="title text-center">
+                                  <h3>Skills</h3>
+                                </div>
+                                <ul class="timeline">
+                                  <li class="open">
+                                    <div class="date">Languages</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Programming Languages that I use.</div>
+                                      <div class="text row">
+
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">Ruby</span>
+                                          <span class="label label-warning">Javascript</span>
+                                          <span class="label label-warning">Coffeescript</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">Frameworks</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Frameworks that I am familiar with.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">Rails</span>
+                                          <span class="label label-warning">Sinatra</span>
+                                          <span class="label label-warning">AngularJs</span>
+                                          <span class="label label-primary">BackboneJs</span>
+                                          <span class="label label-primary">MeteorJs</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">Database</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Databases that I use.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">MySQL</span>
+                                          <span class="label label-warning">PostgreSQL</span>
+                                          <span class="label label-warning">MongoDB</span>
+                                          <span class="label label-primary">Redis</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">Libraries</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Frontend libraries commonly used.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">jQuery</span>
+                                          <span class="label label-warning">Yeoman</span>
+                                          <span class="label label-warning">Twitter Bootstrap</span>
+                                          <span class="label label-primary">Foundation</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">Web Servers</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Production webservers.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">Apache</span>
+                                          <span class="label label-warning">Nginx</span>
+                                          <span class="label label-warning">Passenger</span>
+                                          <span class="label label-primary">Unicorn</span>
+                                          <span class="label label-primary">Puma</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">Templates</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Templating engines and CSS.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">ERB</span>
+                                          <span class="label label-warning">Haml</span>
+                                          <span class="label label-warning">Slim</span>
+                                          <span class="label label-primary">SASS</span>
+                                          <span class="label label-primary">SCSS</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">Testing</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Commonly used test suites.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">Rspec</span>
+                                          <span class="label label-warning">Capybara</span>
+                                          <span class="label label-warning">FactoryGirl</span>
+                                          <span class="label label-primary">Cuccumber</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">Cloud</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Familiar cloud services.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">AWS</span>
+                                          <span class="label label-warning">Heroku</span>
+                                          <span class="label label-warning">Engineyard</span>
+                                          <span class="label label-primary">Digital Ocean</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">CI</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Continous Integration/ Automation tools.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">Jenkins</span>
+                                          <span class="label label-warning">Capistrano</span>
+                                          <span class="label label-warning">Chef</span>
+                                          <span class="label label-warning">Mina</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="date">OS</div>
+                                    <div class="circle"></div>
+                                    <div class="data">
+                                      <div class="subject">Operating systems used.</div>
+                                      <div class="text row">
+                                        <div class="col-md-10">
+                                          <span class="label label-danger">Ubuntu</span>
+                                          <span class="label label-warning">Centos</span>
+                                          <span class="label label-warning">Open Suse</span>
+                                          <span class="label label-primary">Macintosh</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact" class="page stellar">
+                    <div class="pageheader">
+                        <div class="headercontent">
+                            <div class="section-container">
+
+                                <h2 class="title">Contact & Meet Me</h2>
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>I would be happy to talk to you if you need my assistance in your project or whether you need consultation or support for your company. Just drop me a line with details about your project, and I will be happy to connect!.</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <strong><i class="icon-phone"></i>&nbsp;&nbsp;</strong>
+                                                <span>Mob: +91-9447-786-299</span>
+                                            </li>
+                                            <li>
+                                                <strong><i class="icon-envelope"></i>&nbsp;&nbsp;</strong>
+                                                <span>neo@codingarena.in</span>
+                                            </li>
+
+                                            <li>
+                                                <strong><i class="icon-skype"></i>&nbsp;&nbsp;</strong>
+                                                <span>manusajith</span>
+                                            </li>
+                                            <li>
+                                                <strong><i class="icon-twitter"></i>&nbsp;&nbsp;</strong>
+                                                <span><a href="http://twitter.com/manusajith">http://twitter.com/manusajith</a></span>
+                                            </li>
+                                            <li>
+                                              <strong><i class="icon-github"></i>&nbsp;&nbsp;</strong>
+                                              <span><a href="http://github.com/manusajith">http://github.com/manusajith</a></span>
+                                            </li>
+                                            <li>
+                                              <strong><i class="icon-linkedin-sign"></i>&nbsp;&nbsp;</strong>
+                                              <span><a href="http://in.linkedin.com/in/manusajith">in.linkedin.com/in/manusajith</a></span>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagecontents">
+                        <div class="section color-1">
+                            <div class="section-container">
+                                <div class="row">
+                                    <div class="col-md-4 text-center hidden-xs hidden-sm">
+                                        <i class="icon-envelope icon-huge"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h2 class="title">Contact me if</h2>
+                                        <p>If you are on a tight deadline, and needs to add some resource to get it done, I can quickly jump in and deliver results and save your ass.<br> <br>
+                                        If you have a legacy systems, which other developers dare to touch, Ping me, I will help with the migration.<br><br>
+                                        If you already have a bootstrapped system and are looking to improvise the performance, optimize it or scale it up, Just give a shout.<br><br>
+                                        If you are concerned about the security of you web service, and needs someone experienced to run an audit, do a code review, I am the man you are searching for.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="overlay"></div>
+
+            </div>
+        </div>
+<script>
+
+
+</script>
+    </body>
+
 </html>
