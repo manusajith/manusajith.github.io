@@ -1260,3 +1260,7 @@ ul.timeline li.open .circle {
 ul.timeline li.open .data {
   border-color: #03bb7a;
 }
+
+.pad-0 {
+  padding: 0;
+}
