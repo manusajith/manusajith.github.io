@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/manusajith
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://codingarena.in
+  * I am manusajith (https://keybase.io/manusajith) on keybase.
+  * I have a public key ASBwOvsihzx8Aj8pMd65eXnOMbEGp4F1Kawk6Bvm7X0F1go
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120703afb22873c7c023f2931deb97979ce31b106a7817529ac24e81be6ed7d05d60a",
+            "host": "keybase.io",
+            "kid": "0120703afb22873c7c023f2931deb97979ce31b106a7817529ac24e81be6ed7d05d60a",
+            "uid": "a4ef97114a9e573813f92b07979d4419",
+            "username": "manusajith"
+        },
+        "service": {
+            "hostname": "codingarena.in",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.15"
+    },
+    "ctime": 1461009141,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1461009097,
+        "hash": "507eea172e6626e72b224f655a00b79bd73350f487fd7cab1b892c97792559544cd4165ac29c1adc43481aa23182ed1c0fad4a5febcee9fc8864ad95f7badd3b",
+        "seqno": 445891
+    },
+    "prev": "23e94b0a1b8309d6decf180e6ccd3467084595deeaa1ffb5dd8ef29f22ecb3c1",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgcDr7Ioc8fAI/KTHeuXl5zjGxBqeBdSmsJOgb5u19BdYKp3BheWxvYWTFAvd7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNzAzYWZiMjI4NzNjN2MwMjNmMjkzMWRlYjk3OTc5Y2UzMWIxMDZhNzgxNzUyOWFjMjRlODFiZTZlZDdkMDVkNjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNzAzYWZiMjI4NzNjN2MwMjNmMjkzMWRlYjk3OTc5Y2UzMWIxMDZhNzgxNzUyOWFjMjRlODFiZTZlZDdkMDVkNjBhIiwidWlkIjoiYTRlZjk3MTE0YTllNTczODEzZjkyYjA3OTc5ZDQ0MTkiLCJ1c2VybmFtZSI6Im1hbnVzYWppdGgifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImNvZGluZ2FyZW5hLmluIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xNSJ9LCJjdGltZSI6MTQ2MTAwOTE0MSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDYxMDA5MDk3LCJoYXNoIjoiNTA3ZWVhMTcyZTY2MjZlNzJiMjI0ZjY1NWEwMGI3OWJkNzMzNTBmNDg3ZmQ3Y2FiMWI4OTJjOTc3OTI1NTk1NDRjZDQxNjVhYzI5YzFhZGM0MzQ4MWFhMjMxODJlZDFjMGZhZDRhNWZlYmNlZTlmYzg4NjRhZDk1ZjdiYWRkM2IiLCJzZXFubyI6NDQ1ODkxfSwicHJldiI6IjIzZTk0YjBhMWI4MzA5ZDZkZWNmMTgwZTZjY2QzNDY3MDg0NTk1ZGVlYWExZmZiNWRkOGVmMjlmMjJlY2IzYzEiLCJzZXFubyI6OCwidGFnIjoic2lnbmF0dXJlIn2jc2lnxECnM6AGY46YJ3LPMsyBbXAMCCqaQUL0bqjN2mgxx0FMtqwwzrdaZxvVGvP1Qs3yzIP7FdpyS0E3vYXH5LCyy5wLqHNpZ190eXBlIKN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/manusajith
+
+==================================================================
